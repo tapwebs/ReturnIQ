@@ -1,0 +1,75 @@
+{
+  "$defs": {
+    "LossBreakdown": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_recovery_paise": {
+          "default": 0,
+          "title": "Cost Recovery Paise",
+          "type": "integer"
+        },
+        "forward_ship_paise": {
+          "default": 0,
+          "title": "Forward Ship Paise",
+          "type": "integer"
+        },
+        "handling_paise": {
+          "default": 0,
+          "title": "Handling Paise",
+          "type": "integer"
+        },
+        "packaging_paise": {
+          "default": 0,
+          "title": "Packaging Paise",
+          "type": "integer"
+        },
+        "reverse_ship_paise": {
+          "default": 0,
+          "title": "Reverse Ship Paise",
+          "type": "integer"
+        },
+        "writeoff_paise": {
+          "default": 0,
+          "title": "Writeoff Paise",
+          "type": "integer"
+        }
+      },
+      "title": "LossBreakdown",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Observed operating loss on accepted post-delivery returns (order value excluded).",
+  "properties": {
+    "assumed_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumed Fields",
+      "type": "array"
+    },
+    "breakdown": {
+      "$ref": "#/$defs/LossBreakdown"
+    },
+    "observed_paise": {
+      "title": "Observed Paise",
+      "type": "integer"
+    },
+    "returns_counted": {
+      "default": 0,
+      "title": "Returns Counted",
+      "type": "integer"
+    },
+    "rto_observed_paise": {
+      "default": 0,
+      "title": "Rto Observed Paise",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "observed_paise",
+    "breakdown"
+  ],
+  "title": "LossSummary",
+  "type": "object"
+}

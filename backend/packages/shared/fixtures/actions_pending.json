@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "agent_run_id": "run_fixture_0001",
+      "assessment_id": "ras_b3f287082819",
+      "audit": [
+        {
+          "actor": "agent",
+          "at": "2026-07-01T12:00:00Z",
+          "event": "PROPOSED"
+        },
+        {
+          "actor": "system",
+          "at": "2026-07-01T12:00:00Z",
+          "event": "PENDING_APPROVAL"
+        }
+      ],
+      "critical": true,
+      "customer_impact": "Refund delayed by about 2 days",
+      "estimated_cost_paise": 0,
+      "estimated_impact_paise": 12000,
+      "evidence": [
+        "ttr_ratio=0.26",
+        "ttr_h=4.50",
+        "returns=3, orders=4, rate=75%"
+      ],
+      "execution": {
+        "error": null,
+        "execution_id": null,
+        "result": null
+      },
+      "expires_at": "2026-07-02T12:00:00Z",
+      "id": "act_fixture_0001",
+      "outcome": null,
+      "requested_by": "AGENT",
+      "stage": "POST_DELIVERY",
+      "status": "PENDING_APPROVAL",
+      "summary": "Hold the refund until the item passes QC",
+      "target": {
+        "customer_id": "cus_scn_04",
+        "order_id": "ord_scn_04",
+        "pincode": null,
+        "return_id": "ret_000126"
+      },
+      "type": "REFUND_AFTER_QC",
+      "version": 1
+    }
+  ],
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

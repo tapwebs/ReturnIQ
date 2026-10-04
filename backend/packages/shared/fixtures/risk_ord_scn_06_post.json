@@ -1,0 +1,51 @@
+{
+  "data": {
+    "alternative_actions": [],
+    "as_of": "2026-04-28T16:30:00Z",
+    "components": {
+      "anomaly": null,
+      "ml": null,
+      "rule": null
+    },
+    "confidence": 0.25,
+    "customer_id": "cus_scn_06",
+    "id": "ras_e96f404236cb",
+    "latency_ms": 1.0,
+    "missing_fields": [
+      "delivered_at"
+    ],
+    "model_version": "mdl_s2_b84a0b",
+    "order_id": "ord_scn_06",
+    "provenance": "SYNTHETIC",
+    "reason": "Not enough reliable data to score this order (delivered_at).",
+    "recommended_action": "INSTANT_RETURN",
+    "risk_level": "INSUFFICIENT_DATA",
+    "risk_score": null,
+    "rule_version": "rules-1.0.0",
+    "scoring_method": "RULES_AND_MODEL",
+    "signals": [
+      {
+        "code": "NO_PRIOR_HISTORY",
+        "contribution": 0.0,
+        "evidence": "prior_orders=0 (cold start)",
+        "label": "No earlier orders: scored on SKU, category, pincode and payment signals",
+        "source": "RULE"
+      }
+    ],
+    "stage": "POST_DELIVERY",
+    "weights": {
+      "anomaly": null,
+      "ml": null,
+      "rule": null
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

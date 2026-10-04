@@ -1,0 +1,17 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "high": {
+      "default": 70,
+      "title": "High",
+      "type": "integer"
+    },
+    "medium": {
+      "default": 40,
+      "title": "Medium",
+      "type": "integer"
+    }
+  },
+  "title": "Thresholds",
+  "type": "object"
+}

@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "OutcomeResult": {
+      "enum": [
+        "SUCCESS",
+        "FAILED",
+        "OVERRIDDEN"
+      ],
+      "title": "OutcomeResult",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Outcome record posted after an executed action (feedback loop).",
+  "properties": {
+    "action_id": {
+      "title": "Action Id",
+      "type": "string"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Note"
+    },
+    "order_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Order Id"
+    },
+    "outcome": {
+      "$ref": "#/$defs/OutcomeResult"
+    },
+    "recorded_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Recorded At"
+    }
+  },
+  "required": [
+    "action_id",
+    "outcome"
+  ],
+  "title": "Outcome",
+  "type": "object"
+}

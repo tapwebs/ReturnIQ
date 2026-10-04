@@ -1,0 +1,41 @@
+{
+  "data": {
+    "alternative_actions": [],
+    "as_of": "2026-05-01T04:30:00Z",
+    "components": {
+      "anomaly": null,
+      "ml": null,
+      "rule": 0.0
+    },
+    "confidence": 0.8,
+    "customer_id": "cus_scn_03",
+    "id": "ras_a49bea377b6a",
+    "latency_ms": 1.0,
+    "missing_fields": [],
+    "model_version": null,
+    "order_id": "ord_scn_03",
+    "provenance": "SYNTHETIC",
+    "reason": "Risk index 0 (LOW): no strong risk signals.",
+    "recommended_action": "NORMAL_FULFILMENT",
+    "risk_level": "LOW",
+    "risk_score": 0,
+    "rule_version": "rules-1.0.0",
+    "scoring_method": "RULES",
+    "signals": [],
+    "stage": "PRE_DISPATCH",
+    "weights": {
+      "anomaly": null,
+      "ml": null,
+      "rule": 1.0
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

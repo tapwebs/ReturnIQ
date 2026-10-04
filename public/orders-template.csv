@@ -1,0 +1,2 @@
+order_id,customer_id,order_date,sku_id,quantity,payment_mode,order_amount_inr,pincode
+ord_example_1,cus_example_1,2026-10-04T10:00:00+05:30,sku_001,1,COD,1499,302021

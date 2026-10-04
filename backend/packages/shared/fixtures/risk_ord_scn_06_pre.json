@@ -1,0 +1,49 @@
+{
+  "data": {
+    "alternative_actions": [],
+    "as_of": "2026-04-23T04:30:00Z",
+    "components": {
+      "anomaly": null,
+      "ml": null,
+      "rule": 0.0
+    },
+    "confidence": 0.5,
+    "customer_id": "cus_scn_06",
+    "id": "ras_9d5e5729f781",
+    "latency_ms": 1.0,
+    "missing_fields": [],
+    "model_version": null,
+    "order_id": "ord_scn_06",
+    "provenance": "SYNTHETIC",
+    "reason": "Risk index 0 (LOW): no strong risk signals.",
+    "recommended_action": "NORMAL_FULFILMENT",
+    "risk_level": "LOW",
+    "risk_score": 0,
+    "rule_version": "rules-1.0.0",
+    "scoring_method": "RULES",
+    "signals": [
+      {
+        "code": "NO_PRIOR_HISTORY",
+        "contribution": 0.0,
+        "evidence": "prior_orders=0 (cold start)",
+        "label": "No earlier orders: scored on SKU, category, pincode and payment signals",
+        "source": "RULE"
+      }
+    ],
+    "stage": "PRE_DISPATCH",
+    "weights": {
+      "anomaly": null,
+      "ml": null,
+      "rule": 1.0
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

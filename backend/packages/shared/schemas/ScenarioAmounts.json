@@ -1,0 +1,24 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "base": {
+      "title": "Base",
+      "type": "integer"
+    },
+    "high": {
+      "title": "High",
+      "type": "integer"
+    },
+    "low": {
+      "title": "Low",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "low",
+    "base",
+    "high"
+  ],
+  "title": "ScenarioAmounts",
+  "type": "object"
+}

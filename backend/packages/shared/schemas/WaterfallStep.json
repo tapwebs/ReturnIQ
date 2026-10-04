@@ -1,0 +1,24 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "amount_paise": {
+      "title": "Amount Paise",
+      "type": "integer"
+    },
+    "assumed": {
+      "default": false,
+      "title": "Assumed",
+      "type": "boolean"
+    },
+    "label": {
+      "title": "Label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "label",
+    "amount_paise"
+  ],
+  "title": "WaterfallStep",
+  "type": "object"
+}

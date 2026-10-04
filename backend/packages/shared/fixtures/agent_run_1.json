@@ -1,0 +1,25 @@
+{
+  "data": {
+    "context": {
+      "dataset_id": "ds_02d31948",
+      "order_id": "ord_scn_04"
+    },
+    "error": null,
+    "id": "run_fixture_0001",
+    "proposals": [],
+    "provider": "PLAYBOOK",
+    "status": "QUEUED",
+    "steps": [],
+    "summary": "",
+    "task": "Review this return request against our policy"
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

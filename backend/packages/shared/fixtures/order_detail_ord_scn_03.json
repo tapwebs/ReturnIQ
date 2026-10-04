@@ -1,0 +1,206 @@
+{
+  "data": {
+    "assessments": [
+      {
+        "alternative_actions": [],
+        "as_of": "2026-05-01T04:30:00Z",
+        "components": {
+          "anomaly": null,
+          "ml": null,
+          "rule": 0.0
+        },
+        "confidence": 0.8,
+        "customer_id": "cus_scn_03",
+        "id": "ras_a49bea377b6a",
+        "latency_ms": 1.0,
+        "missing_fields": [],
+        "model_version": null,
+        "order_id": "ord_scn_03",
+        "provenance": "SYNTHETIC",
+        "reason": "Risk index 0 (LOW): no strong risk signals.",
+        "recommended_action": "NORMAL_FULFILMENT",
+        "risk_level": "LOW",
+        "risk_score": 0,
+        "rule_version": "rules-1.0.0",
+        "scoring_method": "RULES",
+        "signals": [],
+        "stage": "PRE_DISPATCH",
+        "weights": {
+          "anomaly": null,
+          "ml": null,
+          "rule": 1.0
+        }
+      },
+      {
+        "alternative_actions": [],
+        "as_of": "2026-05-05T13:30:00Z",
+        "components": {
+          "anomaly": null,
+          "ml": 0.0,
+          "rule": 0.0
+        },
+        "confidence": 0.8,
+        "customer_id": "cus_scn_03",
+        "id": "ras_e81efcc008cf",
+        "latency_ms": 1.0,
+        "missing_fields": [],
+        "model_version": "mdl_s2_b84a0b",
+        "order_id": "ord_scn_03",
+        "provenance": "SYNTHETIC",
+        "reason": "Risk index 0 (LOW): the return reason points to a seller or carrier issue, so it is not treated as preventable.",
+        "recommended_action": "INSTANT_RETURN",
+        "risk_level": "LOW",
+        "risk_score": 0,
+        "rule_version": "rules-1.0.0",
+        "scoring_method": "RULES_AND_MODEL",
+        "signals": [
+          {
+            "code": "ML_TTR_H",
+            "contribution": 0.0,
+            "evidence": "ttr_h=3.00",
+            "label": "Model: Time to return",
+            "source": "ML"
+          },
+          {
+            "code": "ML_TTR_RATIO",
+            "contribution": 0.0,
+            "evidence": "ttr_ratio=0.21",
+            "label": "Model: Return speed vs median",
+            "source": "ML"
+          },
+          {
+            "code": "ML_VALUE_RATIO",
+            "contribution": 0.0,
+            "evidence": "value_ratio=1.13",
+            "label": "Model: Value vs category",
+            "source": "ML"
+          },
+          {
+            "code": "SELLER_OR_CARRIER_FAULT_REASON",
+            "contribution": 0.0,
+            "evidence": "reason in DEFECTIVE / DAMAGED_IN_TRANSIT / WRONG_ITEM",
+            "label": "Reason points to a seller or carrier issue, so it is not treated as preventable",
+            "source": "RULE"
+          }
+        ],
+        "stage": "POST_DELIVERY",
+        "weights": {
+          "anomaly": null,
+          "ml": 0.5,
+          "rule": 0.5
+        }
+      }
+    ],
+    "events": [
+      {
+        "at": "2026-05-01T04:30:00Z",
+        "detail": "PREPAID order placed",
+        "kind": "ORDER_PLACED"
+      },
+      {
+        "at": "2026-05-01T10:30:00Z",
+        "detail": "Dispatched",
+        "kind": "SHIPPED"
+      },
+      {
+        "at": "2026-05-05T10:30:00Z",
+        "detail": "Delivered",
+        "kind": "DELIVERED"
+      },
+      {
+        "at": "2026-05-05T13:30:00Z",
+        "detail": "Reason: DEFECTIVE",
+        "kind": "RETURN_REQUESTED"
+      }
+    ],
+    "order": {
+      "category": "LIFESTYLE",
+      "customer_id": "cus_scn_03",
+      "delivery_status": "DELIVERED",
+      "order_amount_paise": 89900,
+      "order_date": "2026-05-01T04:30:00Z",
+      "order_id": "ord_scn_03",
+      "payment_mode": "PREPAID",
+      "pincode": "317082",
+      "quantity": 1,
+      "return_status": "ACCEPTED",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "sku_id": "sku_scn_LIF"
+    },
+    "prior_orders": [
+      {
+        "category": "LIFESTYLE",
+        "customer_id": "cus_scn_03",
+        "delivery_status": "DELIVERED",
+        "order_amount_paise": 79900,
+        "order_date": "2026-03-22T04:30:00Z",
+        "order_id": "ord_scn_03_h1",
+        "payment_mode": "PREPAID",
+        "pincode": "317082",
+        "quantity": 1,
+        "return_status": null,
+        "risk_level": null,
+        "risk_score": null,
+        "sku_id": "sku_scn_LIF"
+      },
+      {
+        "category": "LIFESTYLE",
+        "customer_id": "cus_scn_03",
+        "delivery_status": "DELIVERED",
+        "order_amount_paise": 79900,
+        "order_date": "2026-04-06T04:30:00Z",
+        "order_id": "ord_scn_03_h2",
+        "payment_mode": "PREPAID",
+        "pincode": "317082",
+        "quantity": 1,
+        "return_status": null,
+        "risk_level": null,
+        "risk_score": null,
+        "sku_id": "sku_scn_LIF"
+      },
+      {
+        "category": "LIFESTYLE",
+        "customer_id": "cus_scn_03",
+        "delivery_status": "DELIVERED",
+        "order_amount_paise": 79900,
+        "order_date": "2026-04-21T04:30:00Z",
+        "order_id": "ord_scn_03_h3",
+        "payment_mode": "PREPAID",
+        "pincode": "317082",
+        "quantity": 1,
+        "return_status": null,
+        "risk_level": null,
+        "risk_score": null,
+        "sku_id": "sku_scn_LIF"
+      }
+    ],
+    "return": {
+      "order_id": "ord_scn_03",
+      "qc_result": "UNKNOWN",
+      "return_accepted_at": "2026-05-06T01:30:00Z",
+      "return_id": "ret_000169",
+      "return_reason": "DEFECTIVE",
+      "return_requested_at": "2026-05-05T13:30:00Z",
+      "return_status": "ACCEPTED",
+      "ttr_bucket": "LT_6H",
+      "ttr_h": 3.0
+    },
+    "shipment": {
+      "delivered_at": "2026-05-05T10:30:00Z",
+      "delivery_attempts": 1,
+      "delivery_status": "DELIVERED",
+      "order_id": "ord_scn_03",
+      "shipped_at": "2026-05-01T10:30:00Z"
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

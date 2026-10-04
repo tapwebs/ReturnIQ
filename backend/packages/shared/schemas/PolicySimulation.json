@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "Stage": {
+      "enum": [
+        "PRE_DISPATCH",
+        "POST_DELIVERY"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "est_net_avoidable_paise": {
+      "title": "Est Net Avoidable Paise",
+      "type": "integer"
+    },
+    "false_positive_estimate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "False Positive Estimate"
+    },
+    "note": {
+      "default": "Estimate on observed outcomes; not a guarantee.",
+      "title": "Note",
+      "type": "string"
+    },
+    "orders_targeted": {
+      "title": "Orders Targeted",
+      "type": "integer"
+    },
+    "preventable_captured_pct": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Preventable Captured Pct"
+    },
+    "returns_captured_pct": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Returns Captured Pct"
+    },
+    "stage": {
+      "$ref": "#/$defs/Stage"
+    },
+    "top_pct": {
+      "title": "Top Pct",
+      "type": "number"
+    }
+  },
+  "required": [
+    "top_pct",
+    "stage",
+    "orders_targeted",
+    "preventable_captured_pct",
+    "returns_captured_pct",
+    "est_net_avoidable_paise",
+    "false_positive_estimate"
+  ],
+  "title": "PolicySimulation",
+  "type": "object"
+}

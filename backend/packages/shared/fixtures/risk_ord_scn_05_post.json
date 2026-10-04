@@ -1,0 +1,93 @@
+{
+  "data": {
+    "alternative_actions": [
+      "EXCHANGE_OR_STORE_CREDIT"
+    ],
+    "as_of": "2026-05-01T10:30:00Z",
+    "components": {
+      "anomaly": null,
+      "ml": 75.0,
+      "rule": 15.0
+    },
+    "confidence": 0.5,
+    "customer_id": "cus_scn_05",
+    "id": "ras_755ef6901302",
+    "latency_ms": 1.0,
+    "missing_fields": [],
+    "model_version": "mdl_s2_b84a0b",
+    "order_id": "ord_scn_05",
+    "provenance": "SYNTHETIC",
+    "reason": "Risk index 45 (MEDIUM): Model: Return reason type; Model: Value vs category.",
+    "recommended_action": "PHOTO_VERIFICATION",
+    "risk_level": "MEDIUM",
+    "risk_score": 45,
+    "rule_version": "rules-1.0.0",
+    "scoring_method": "RULES_AND_MODEL",
+    "signals": [
+      {
+        "code": "ML_REASON_ELIGIBLE",
+        "contribution": 26.0,
+        "evidence": "reason_eligible=1.00",
+        "label": "Model: Return reason type",
+        "source": "ML"
+      },
+      {
+        "code": "ML_VALUE_RATIO",
+        "contribution": 14.0,
+        "evidence": "value_ratio=2.52",
+        "label": "Model: Value vs category",
+        "source": "ML"
+      },
+      {
+        "code": "ML_SELLER_MEDIAN_TTR",
+        "contribution": 9.0,
+        "evidence": "seller_median_ttr=16.56",
+        "label": "Model: Seller median return time",
+        "source": "ML"
+      },
+      {
+        "code": "COD_HIGH_VALUE_VS_CATEGORY",
+        "contribution": 8.0,
+        "evidence": "value_vs_category_median=2.52x",
+        "label": "Cash-on-delivery order well above the usual value for its category",
+        "source": "RULE"
+      },
+      {
+        "code": "HIGH_RETURN_CATEGORY",
+        "contribution": 5.9,
+        "evidence": "category_return_lift=1.49",
+        "label": "This category is returned more often than the seller average",
+        "source": "RULE"
+      },
+      {
+        "code": "HIGH_RETURN_SKU",
+        "contribution": 1.1,
+        "evidence": "sku_return_lift=1.40",
+        "label": "This SKU is returned more often than the seller average",
+        "source": "RULE"
+      },
+      {
+        "code": "NO_PRIOR_HISTORY",
+        "contribution": 0.0,
+        "evidence": "prior_orders=0 (cold start)",
+        "label": "No earlier orders: scored on SKU, category, pincode and payment signals",
+        "source": "RULE"
+      }
+    ],
+    "stage": "POST_DELIVERY",
+    "weights": {
+      "anomaly": null,
+      "ml": 0.5,
+      "rule": 0.5
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

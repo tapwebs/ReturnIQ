@@ -1,0 +1,92 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "FASHION",
+        "BEAUTY",
+        "ELECTRONICS",
+        "LIFESTYLE",
+        "OTHER"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "PaymentMode": {
+      "enum": [
+        "COD",
+        "PREPAID",
+        "PARTIAL_COD"
+      ],
+      "title": "PaymentMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Category"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "customer_id": {
+      "default": "cus_preview",
+      "title": "Customer Id",
+      "type": "string"
+    },
+    "order_amount_paise": {
+      "minimum": 0,
+      "title": "Order Amount Paise",
+      "type": "integer"
+    },
+    "order_date": {
+      "format": "date-time",
+      "title": "Order Date",
+      "type": "string"
+    },
+    "order_id": {
+      "default": "ord_preview",
+      "title": "Order Id",
+      "type": "string"
+    },
+    "payment_mode": {
+      "$ref": "#/$defs/PaymentMode"
+    },
+    "pincode": {
+      "anyOf": [
+        {
+          "pattern": "^\\d{6}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pincode"
+    },
+    "quantity": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Quantity",
+      "type": "integer"
+    },
+    "sku_id": {
+      "default": "sku_preview",
+      "title": "Sku Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "order_date",
+    "payment_mode",
+    "order_amount_paise"
+  ],
+  "title": "PreviewOrder",
+  "type": "object"
+}

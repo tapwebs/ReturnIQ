@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "title": "Count",
+      "type": "integer"
+    },
+    "lower": {
+      "title": "Lower",
+      "type": "number"
+    },
+    "mean_predicted": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mean Predicted"
+    },
+    "observed_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Rate"
+    },
+    "upper": {
+      "title": "Upper",
+      "type": "number"
+    }
+  },
+  "required": [
+    "lower",
+    "upper",
+    "count",
+    "mean_predicted",
+    "observed_rate"
+  ],
+  "title": "CalibrationBin",
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "title": "Actor",
+      "type": "string"
+    },
+    "at": {
+      "format": "date-time",
+      "title": "At",
+      "type": "string"
+    },
+    "event": {
+      "title": "Event",
+      "type": "string"
+    }
+  },
+  "required": [
+    "at",
+    "actor",
+    "event"
+  ],
+  "title": "AuditEntry",
+  "type": "object"
+}

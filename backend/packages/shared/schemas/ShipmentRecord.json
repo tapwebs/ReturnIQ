@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "DeliveryStatus": {
+      "enum": [
+        "DELIVERED",
+        "RTO",
+        "IN_TRANSIT",
+        "NDR",
+        "LOST"
+      ],
+      "title": "DeliveryStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "delivered_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Delivered At"
+    },
+    "delivery_attempts": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Delivery Attempts"
+    },
+    "delivery_status": {
+      "$ref": "#/$defs/DeliveryStatus"
+    },
+    "order_id": {
+      "title": "Order Id",
+      "type": "string"
+    },
+    "shipped_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Shipped At"
+    }
+  },
+  "required": [
+    "order_id",
+    "delivery_status"
+  ],
+  "title": "ShipmentRecord",
+  "type": "object"
+}

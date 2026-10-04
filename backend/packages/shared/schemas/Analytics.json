@@ -1,0 +1,552 @@
+{
+  "$defs": {
+    "LossBreakdown": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_recovery_paise": {
+          "default": 0,
+          "title": "Cost Recovery Paise",
+          "type": "integer"
+        },
+        "forward_ship_paise": {
+          "default": 0,
+          "title": "Forward Ship Paise",
+          "type": "integer"
+        },
+        "handling_paise": {
+          "default": 0,
+          "title": "Handling Paise",
+          "type": "integer"
+        },
+        "packaging_paise": {
+          "default": 0,
+          "title": "Packaging Paise",
+          "type": "integer"
+        },
+        "reverse_ship_paise": {
+          "default": 0,
+          "title": "Reverse Ship Paise",
+          "type": "integer"
+        },
+        "writeoff_paise": {
+          "default": 0,
+          "title": "Writeoff Paise",
+          "type": "integer"
+        }
+      },
+      "title": "LossBreakdown",
+      "type": "object"
+    },
+    "LossSummary": {
+      "additionalProperties": false,
+      "description": "Observed operating loss on accepted post-delivery returns (order value excluded).",
+      "properties": {
+        "assumed_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumed Fields",
+          "type": "array"
+        },
+        "breakdown": {
+          "$ref": "#/$defs/LossBreakdown"
+        },
+        "observed_paise": {
+          "title": "Observed Paise",
+          "type": "integer"
+        },
+        "returns_counted": {
+          "default": 0,
+          "title": "Returns Counted",
+          "type": "integer"
+        },
+        "rto_observed_paise": {
+          "default": 0,
+          "title": "Rto Observed Paise",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "observed_paise",
+        "breakdown"
+      ],
+      "title": "LossSummary",
+      "type": "object"
+    },
+    "Readiness": {
+      "additionalProperties": false,
+      "properties": {
+        "completed_return_windows": {
+          "title": "Completed Return Windows",
+          "type": "integer"
+        },
+        "days_observed": {
+          "title": "Days Observed",
+          "type": "number"
+        },
+        "mode": {
+          "$ref": "#/$defs/ReadinessMode"
+        },
+        "orders": {
+          "title": "Orders",
+          "type": "integer"
+        },
+        "ready": {
+          "title": "Ready",
+          "type": "boolean"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "timestamp_completeness": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Timestamp Completeness",
+          "type": "number"
+        }
+      },
+      "required": [
+        "mode",
+        "days_observed",
+        "orders",
+        "completed_return_windows",
+        "timestamp_completeness",
+        "ready",
+        "reason"
+      ],
+      "title": "Readiness",
+      "type": "object"
+    },
+    "ReadinessMode": {
+      "enum": [
+        "OBSERVATION",
+        "ACTIVE"
+      ],
+      "title": "ReadinessMode",
+      "type": "string"
+    },
+    "ReasonRow": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        },
+        "preventable_eligible": {
+          "title": "Preventable Eligible",
+          "type": "boolean"
+        },
+        "reason": {
+          "$ref": "#/$defs/ReturnReason"
+        },
+        "share": {
+          "title": "Share",
+          "type": "number"
+        }
+      },
+      "required": [
+        "reason",
+        "count",
+        "share",
+        "preventable_eligible"
+      ],
+      "title": "ReasonRow",
+      "type": "object"
+    },
+    "ReturnReason": {
+      "enum": [
+        "SIZE_FIT",
+        "CHANGED_MIND",
+        "NOT_AS_DESCRIBED",
+        "DEFECTIVE",
+        "DAMAGED_IN_TRANSIT",
+        "WRONG_ITEM",
+        "OTHER"
+      ],
+      "title": "ReturnReason",
+      "type": "string"
+    },
+    "ReturnsMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted": {
+          "title": "Accepted",
+          "type": "integer"
+        },
+        "denominator": {
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rate"
+        },
+        "requested": {
+          "title": "Requested",
+          "type": "integer"
+        },
+        "requested_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Requested Rate"
+        }
+      },
+      "required": [
+        "requested",
+        "accepted",
+        "rate",
+        "denominator"
+      ],
+      "title": "ReturnsMetric",
+      "type": "object"
+    },
+    "RtoMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        },
+        "denominator": {
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "pending": {
+          "default": 0,
+          "title": "Pending",
+          "type": "integer"
+        },
+        "rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rate"
+        }
+      },
+      "required": [
+        "count",
+        "rate",
+        "denominator"
+      ],
+      "title": "RtoMetric",
+      "type": "object"
+    },
+    "ScenarioAmounts": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "title": "Base",
+          "type": "integer"
+        },
+        "high": {
+          "title": "High",
+          "type": "integer"
+        },
+        "low": {
+          "title": "Low",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "low",
+        "base",
+        "high"
+      ],
+      "title": "ScenarioAmounts",
+      "type": "object"
+    },
+    "ScoringMethod": {
+      "enum": [
+        "RULES",
+        "RULES_AND_MODEL"
+      ],
+      "title": "ScoringMethod",
+      "type": "string"
+    },
+    "SegmentRow": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "title": "Key",
+          "type": "string"
+        },
+        "loss_paise": {
+          "default": 0,
+          "title": "Loss Paise",
+          "type": "integer"
+        },
+        "orders": {
+          "title": "Orders",
+          "type": "integer"
+        },
+        "return_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Return Rate"
+        },
+        "returns": {
+          "title": "Returns",
+          "type": "integer"
+        },
+        "rto": {
+          "title": "Rto",
+          "type": "integer"
+        },
+        "rto_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rto Rate"
+        }
+      },
+      "required": [
+        "key",
+        "orders",
+        "returns",
+        "rto",
+        "return_rate",
+        "rto_rate"
+      ],
+      "title": "SegmentRow",
+      "type": "object"
+    },
+    "TtrBucket": {
+      "enum": [
+        "LT_6H",
+        "H6_24",
+        "D1_3",
+        "D3_7",
+        "GT_7D",
+        "UNKNOWN"
+      ],
+      "title": "TtrBucket",
+      "type": "string"
+    },
+    "TtrBucketCount": {
+      "additionalProperties": false,
+      "properties": {
+        "bucket": {
+          "$ref": "#/$defs/TtrBucket"
+        },
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bucket",
+        "count"
+      ],
+      "title": "TtrBucketCount",
+      "type": "object"
+    },
+    "TtrSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "buckets": {
+          "items": {
+            "$ref": "#/$defs/TtrBucketCount"
+          },
+          "title": "Buckets",
+          "type": "array"
+        },
+        "median_h": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Median H"
+        }
+      },
+      "required": [
+        "median_h",
+        "buckets"
+      ],
+      "title": "TtrSummary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "confirmed_prr": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confirmed Prr"
+    },
+    "delivered": {
+      "title": "Delivered",
+      "type": "integer"
+    },
+    "dispatched": {
+      "title": "Dispatched",
+      "type": "integer"
+    },
+    "est_net_avoidable": {
+      "$ref": "#/$defs/ScenarioAmounts"
+    },
+    "estimate_note": {
+      "default": "Estimated PRR is the share of returns the system would have flagged.",
+      "title": "Estimate Note",
+      "type": "string"
+    },
+    "estimated_prr": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Estimated Prr"
+    },
+    "flagged_returns": {
+      "title": "Flagged Returns",
+      "type": "integer"
+    },
+    "loss": {
+      "$ref": "#/$defs/LossSummary"
+    },
+    "loss_avoided_per_100_paise": {
+      "title": "Loss Avoided Per 100 Paise",
+      "type": "integer"
+    },
+    "orders": {
+      "title": "Orders",
+      "type": "integer"
+    },
+    "period_from": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Period From"
+    },
+    "period_to": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Period To"
+    },
+    "readiness": {
+      "$ref": "#/$defs/Readiness"
+    },
+    "reason_breakdown": {
+      "items": {
+        "$ref": "#/$defs/ReasonRow"
+      },
+      "title": "Reason Breakdown",
+      "type": "array"
+    },
+    "repeat_returners": {
+      "default": 0,
+      "title": "Repeat Returners",
+      "type": "integer"
+    },
+    "returns": {
+      "$ref": "#/$defs/ReturnsMetric"
+    },
+    "rto": {
+      "$ref": "#/$defs/RtoMetric"
+    },
+    "scoring_method": {
+      "$ref": "#/$defs/ScoringMethod",
+      "default": "RULES"
+    },
+    "top_pincodes": {
+      "items": {
+        "$ref": "#/$defs/SegmentRow"
+      },
+      "title": "Top Pincodes",
+      "type": "array"
+    },
+    "top_segments": {
+      "items": {
+        "$ref": "#/$defs/SegmentRow"
+      },
+      "title": "Top Segments",
+      "type": "array"
+    },
+    "top_skus": {
+      "items": {
+        "$ref": "#/$defs/SegmentRow"
+      },
+      "title": "Top Skus",
+      "type": "array"
+    },
+    "ttr": {
+      "$ref": "#/$defs/TtrSummary"
+    }
+  },
+  "required": [
+    "orders",
+    "dispatched",
+    "delivered",
+    "rto",
+    "returns",
+    "flagged_returns",
+    "estimated_prr",
+    "loss",
+    "est_net_avoidable",
+    "loss_avoided_per_100_paise",
+    "ttr",
+    "readiness"
+  ],
+  "title": "Analytics",
+  "type": "object"
+}

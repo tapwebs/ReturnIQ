@@ -1,0 +1,144 @@
+{
+  "data": {
+    "assessments": [
+      {
+        "alternative_actions": [],
+        "as_of": "2026-04-23T04:30:00Z",
+        "components": {
+          "anomaly": null,
+          "ml": null,
+          "rule": 0.0
+        },
+        "confidence": 0.5,
+        "customer_id": "cus_scn_06",
+        "id": "ras_9d5e5729f781",
+        "latency_ms": 1.0,
+        "missing_fields": [],
+        "model_version": null,
+        "order_id": "ord_scn_06",
+        "provenance": "SYNTHETIC",
+        "reason": "Risk index 0 (LOW): no strong risk signals.",
+        "recommended_action": "NORMAL_FULFILMENT",
+        "risk_level": "LOW",
+        "risk_score": 0,
+        "rule_version": "rules-1.0.0",
+        "scoring_method": "RULES",
+        "signals": [
+          {
+            "code": "NO_PRIOR_HISTORY",
+            "contribution": 0.0,
+            "evidence": "prior_orders=0 (cold start)",
+            "label": "No earlier orders: scored on SKU, category, pincode and payment signals",
+            "source": "RULE"
+          }
+        ],
+        "stage": "PRE_DISPATCH",
+        "weights": {
+          "anomaly": null,
+          "ml": null,
+          "rule": 1.0
+        }
+      },
+      {
+        "alternative_actions": [],
+        "as_of": "2026-04-28T16:30:00Z",
+        "components": {
+          "anomaly": null,
+          "ml": null,
+          "rule": null
+        },
+        "confidence": 0.25,
+        "customer_id": "cus_scn_06",
+        "id": "ras_e96f404236cb",
+        "latency_ms": 1.0,
+        "missing_fields": [
+          "delivered_at"
+        ],
+        "model_version": "mdl_s2_b84a0b",
+        "order_id": "ord_scn_06",
+        "provenance": "SYNTHETIC",
+        "reason": "Not enough reliable data to score this order (delivered_at).",
+        "recommended_action": "INSTANT_RETURN",
+        "risk_level": "INSUFFICIENT_DATA",
+        "risk_score": null,
+        "rule_version": "rules-1.0.0",
+        "scoring_method": "RULES_AND_MODEL",
+        "signals": [
+          {
+            "code": "NO_PRIOR_HISTORY",
+            "contribution": 0.0,
+            "evidence": "prior_orders=0 (cold start)",
+            "label": "No earlier orders: scored on SKU, category, pincode and payment signals",
+            "source": "RULE"
+          }
+        ],
+        "stage": "POST_DELIVERY",
+        "weights": {
+          "anomaly": null,
+          "ml": null,
+          "rule": null
+        }
+      }
+    ],
+    "events": [
+      {
+        "at": "2026-04-23T04:30:00Z",
+        "detail": "PREPAID order placed",
+        "kind": "ORDER_PLACED"
+      },
+      {
+        "at": "2026-04-23T10:30:00Z",
+        "detail": "Dispatched",
+        "kind": "SHIPPED"
+      },
+      {
+        "at": "2026-04-28T16:30:00Z",
+        "detail": "Reason: NOT_AS_DESCRIBED",
+        "kind": "RETURN_REQUESTED"
+      }
+    ],
+    "order": {
+      "category": "ELECTRONICS",
+      "customer_id": "cus_scn_06",
+      "delivery_status": "DELIVERED",
+      "order_amount_paise": 149900,
+      "order_date": "2026-04-23T04:30:00Z",
+      "order_id": "ord_scn_06",
+      "payment_mode": "PREPAID",
+      "pincode": "317082",
+      "quantity": 1,
+      "return_status": "REQUESTED",
+      "risk_level": "INSUFFICIENT_DATA",
+      "risk_score": null,
+      "sku_id": "sku_scn_ELE"
+    },
+    "prior_orders": [],
+    "return": {
+      "order_id": "ord_scn_06",
+      "qc_result": null,
+      "return_accepted_at": null,
+      "return_id": "ret_000155",
+      "return_reason": "NOT_AS_DESCRIBED",
+      "return_requested_at": "2026-04-28T16:30:00Z",
+      "return_status": "REQUESTED",
+      "ttr_bucket": "UNKNOWN",
+      "ttr_h": null
+    },
+    "shipment": {
+      "delivered_at": null,
+      "delivery_attempts": 1,
+      "delivery_status": "DELIVERED",
+      "order_id": "ord_scn_06",
+      "shipped_at": "2026-04-23T10:30:00Z"
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

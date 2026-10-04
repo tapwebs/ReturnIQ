@@ -1,0 +1,114 @@
+{
+  "data": {
+    "alternative_actions": [
+      "REFUND_AFTER_QC"
+    ],
+    "as_of": "2026-04-15T15:00:00Z",
+    "components": {
+      "anomaly": null,
+      "ml": 100.0,
+      "rule": 86.7
+    },
+    "confidence": 0.9,
+    "customer_id": "cus_scn_04",
+    "id": "ras_b3f287082819",
+    "latency_ms": 1.0,
+    "missing_fields": [],
+    "model_version": "mdl_s2_b84a0b",
+    "order_id": "ord_scn_04",
+    "provenance": "SYNTHETIC",
+    "reason": "Risk index 93 (HIGH): Model: Return speed vs median; Model: Time to return.",
+    "recommended_action": "MANUAL_REVIEW",
+    "risk_level": "HIGH",
+    "risk_score": 93,
+    "rule_version": "rules-1.0.0",
+    "scoring_method": "RULES_AND_MODEL",
+    "signals": [
+      {
+        "code": "ML_TTR_RATIO",
+        "contribution": 33.5,
+        "evidence": "ttr_ratio=0.26",
+        "label": "Model: Return speed vs median",
+        "source": "ML"
+      },
+      {
+        "code": "ML_TTR_H",
+        "contribution": 30.0,
+        "evidence": "ttr_h=4.50",
+        "label": "Model: Time to return",
+        "source": "ML"
+      },
+      {
+        "code": "RETURN_FREQ_HIGH",
+        "contribution": 25.0,
+        "evidence": "returns=3, orders=4, rate=75%",
+        "label": "3 returns in 4 earlier orders",
+        "source": "RULE"
+      },
+      {
+        "code": "TTR_ABNORMALLY_FAST",
+        "contribution": 20.0,
+        "evidence": "ttr_h=4.5, seller_median_ttr_h=17.4",
+        "label": "Return raised in 4.5 h, about 4x faster than your median",
+        "source": "RULE"
+      },
+      {
+        "code": "ML_REASON_ELIGIBLE",
+        "contribution": 15.7,
+        "evidence": "reason_eligible=1.00",
+        "label": "Model: Return reason type",
+        "source": "ML"
+      },
+      {
+        "code": "FAST_RETURN_HISTORY",
+        "contribution": 15.0,
+        "evidence": "fast_return_share=100%",
+        "label": "Earlier returns were mostly raised within hours of delivery",
+        "source": "RULE"
+      },
+      {
+        "code": "RETURN_FREQ_RECENT",
+        "contribution": 10.0,
+        "evidence": "returns_30d=2",
+        "label": "2 returns in the last 30 days",
+        "source": "RULE"
+      },
+      {
+        "code": "SAME_CATEGORY_REPEAT",
+        "contribution": 10.0,
+        "evidence": "same_category_returns=3",
+        "label": "Repeat returns in the same category",
+        "source": "RULE"
+      },
+      {
+        "code": "HIGH_RETURN_CATEGORY",
+        "contribution": 6.0,
+        "evidence": "category_return_lift=1.56",
+        "label": "This category is returned more often than the seller average",
+        "source": "RULE"
+      },
+      {
+        "code": "HIGH_RETURN_SKU",
+        "contribution": 0.7,
+        "evidence": "sku_return_lift=1.37",
+        "label": "This SKU is returned more often than the seller average",
+        "source": "RULE"
+      }
+    ],
+    "stage": "POST_DELIVERY",
+    "weights": {
+      "anomaly": null,
+      "ml": 0.5,
+      "rule": 0.5
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

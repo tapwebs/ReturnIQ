@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "key": {
+      "title": "Key",
+      "type": "string"
+    },
+    "loss_paise": {
+      "default": 0,
+      "title": "Loss Paise",
+      "type": "integer"
+    },
+    "orders": {
+      "title": "Orders",
+      "type": "integer"
+    },
+    "return_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Return Rate"
+    },
+    "returns": {
+      "title": "Returns",
+      "type": "integer"
+    },
+    "rto": {
+      "title": "Rto",
+      "type": "integer"
+    },
+    "rto_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rto Rate"
+    }
+  },
+  "required": [
+    "key",
+    "orders",
+    "returns",
+    "rto",
+    "return_rate",
+    "rto_rate"
+  ],
+  "title": "SegmentRow",
+  "type": "object"
+}

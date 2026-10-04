@@ -1,0 +1,281 @@
+{
+  "data": {
+    "confirmed_prr": null,
+    "delivered": 1047,
+    "dispatched": 1200,
+    "est_net_avoidable": {
+      "base": 396130,
+      "high": 710818,
+      "low": 81442
+    },
+    "estimate_note": "Estimated PRR is the share of returns the system would have flagged.",
+    "estimated_prr": 6.4,
+    "flagged_returns": 67,
+    "loss": {
+      "assumed_fields": [
+        "forward_ship",
+        "reverse_ship",
+        "packaging",
+        "handling",
+        "writeoff",
+        "cost_recovery"
+      ],
+      "breakdown": {
+        "cost_recovery_paise": 0,
+        "forward_ship_paise": 1476000,
+        "handling_paise": 615000,
+        "packaging_paise": 369000,
+        "reverse_ship_paise": 1968000,
+        "writeoff_paise": 1019580
+      },
+      "observed_paise": 5447580,
+      "returns_counted": 246,
+      "rto_observed_paise": 1999500
+    },
+    "loss_avoided_per_100_paise": 33011,
+    "orders": 1200,
+    "period_from": "2026-01-01T08:50:01Z",
+    "period_to": "2026-06-29T15:57:16Z",
+    "readiness": {
+      "completed_return_windows": 987,
+      "days_observed": 179.3,
+      "mode": "ACTIVE",
+      "orders": 1200,
+      "ready": true,
+      "reason": "Enough history to act.",
+      "timestamp_completeness": 0.9819
+    },
+    "reason_breakdown": [
+      {
+        "count": 105,
+        "preventable_eligible": true,
+        "reason": "CHANGED_MIND",
+        "share": 0.4023
+      },
+      {
+        "count": 71,
+        "preventable_eligible": true,
+        "reason": "SIZE_FIT",
+        "share": 0.272
+      },
+      {
+        "count": 54,
+        "preventable_eligible": true,
+        "reason": "NOT_AS_DESCRIBED",
+        "share": 0.2069
+      },
+      {
+        "count": 17,
+        "preventable_eligible": false,
+        "reason": "DEFECTIVE",
+        "share": 0.0651
+      },
+      {
+        "count": 7,
+        "preventable_eligible": false,
+        "reason": "DAMAGED_IN_TRANSIT",
+        "share": 0.0268
+      },
+      {
+        "count": 7,
+        "preventable_eligible": false,
+        "reason": "WRONG_ITEM",
+        "share": 0.0268
+      }
+    ],
+    "repeat_returners": 47,
+    "returns": {
+      "accepted": 246,
+      "denominator": 1047,
+      "rate": 23.5,
+      "requested": 261,
+      "requested_rate": 24.93
+    },
+    "rto": {
+      "count": 129,
+      "denominator": 1200,
+      "pending": 0,
+      "rate": 10.75
+    },
+    "scoring_method": "RULES",
+    "top_pincodes": [
+      {
+        "key": "478303",
+        "loss_paise": 141990,
+        "orders": 26,
+        "return_rate": 26.92,
+        "returns": 7,
+        "rto": 9,
+        "rto_rate": 34.62
+      },
+      {
+        "key": "207665",
+        "loss_paise": 182820,
+        "orders": 30,
+        "return_rate": 26.67,
+        "returns": 8,
+        "rto": 7,
+        "rto_rate": 23.33
+      },
+      {
+        "key": "280772",
+        "loss_paise": 288920,
+        "orders": 19,
+        "return_rate": 52.63,
+        "returns": 10,
+        "rto": 1,
+        "rto_rate": 5.26
+      },
+      {
+        "key": "667775",
+        "loss_paise": 153290,
+        "orders": 28,
+        "return_rate": 17.86,
+        "returns": 5,
+        "rto": 5,
+        "rto_rate": 17.86
+      },
+      {
+        "key": "461474",
+        "loss_paise": 116750,
+        "orders": 22,
+        "return_rate": 27.27,
+        "returns": 6,
+        "rto": 4,
+        "rto_rate": 18.18
+      }
+    ],
+    "top_segments": [
+      {
+        "key": "FASHION / COD",
+        "loss_paise": 2133000,
+        "orders": 308,
+        "return_rate": 32.14,
+        "returns": 99,
+        "rto": 50,
+        "rto_rate": 16.23
+      },
+      {
+        "key": "FASHION / PREPAID",
+        "loss_paise": 2013020,
+        "orders": 262,
+        "return_rate": 36.26,
+        "returns": 95,
+        "rto": 7,
+        "rto_rate": 2.67
+      },
+      {
+        "key": "LIFESTYLE / COD",
+        "loss_paise": 278110,
+        "orders": 135,
+        "return_rate": 11.11,
+        "returns": 15,
+        "rto": 24,
+        "rto_rate": 17.78
+      },
+      {
+        "key": "BEAUTY / COD",
+        "loss_paise": 202190,
+        "orders": 125,
+        "return_rate": 12.0,
+        "returns": 15,
+        "rto": 22,
+        "rto_rate": 17.6
+      },
+      {
+        "key": "ELECTRONICS / COD",
+        "loss_paise": 275990,
+        "orders": 100,
+        "return_rate": 10.0,
+        "returns": 10,
+        "rto": 18,
+        "rto_rate": 18.0
+      }
+    ],
+    "top_skus": [
+      {
+        "key": "sku_FAS_003",
+        "loss_paise": 757120,
+        "orders": 71,
+        "return_rate": 56.34,
+        "returns": 40,
+        "rto": 3,
+        "rto_rate": 4.23
+      },
+      {
+        "key": "sku_FAS_001",
+        "loss_paise": 272990,
+        "orders": 63,
+        "return_rate": 22.22,
+        "returns": 14,
+        "rto": 9,
+        "rto_rate": 14.29
+      },
+      {
+        "key": "sku_FAS_002",
+        "loss_paise": 392480,
+        "orders": 67,
+        "return_rate": 28.36,
+        "returns": 19,
+        "rto": 3,
+        "rto_rate": 4.48
+      },
+      {
+        "key": "sku_FAS_011",
+        "loss_paise": 241290,
+        "orders": 35,
+        "return_rate": 37.14,
+        "returns": 13,
+        "rto": 7,
+        "rto_rate": 20.0
+      },
+      {
+        "key": "sku_FAS_005",
+        "loss_paise": 356210,
+        "orders": 44,
+        "return_rate": 34.09,
+        "returns": 15,
+        "rto": 4,
+        "rto_rate": 9.09
+      }
+    ],
+    "ttr": {
+      "buckets": [
+        {
+          "bucket": "LT_6H",
+          "count": 91
+        },
+        {
+          "bucket": "H6_24",
+          "count": 57
+        },
+        {
+          "bucket": "D1_3",
+          "count": 58
+        },
+        {
+          "bucket": "D3_7",
+          "count": 33
+        },
+        {
+          "bucket": "GT_7D",
+          "count": 16
+        },
+        {
+          "bucket": "UNKNOWN",
+          "count": 6
+        }
+      ],
+      "median_h": 16.56
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cohort": {
+      "title": "Cohort",
+      "type": "string"
+    },
+    "loss_paise": {
+      "title": "Loss Paise",
+      "type": "integer"
+    },
+    "median_ttr_h": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Median Ttr H"
+    },
+    "return_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Return Rate"
+    },
+    "returns": {
+      "title": "Returns",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "cohort",
+    "returns",
+    "median_ttr_h",
+    "return_rate",
+    "loss_paise"
+  ],
+  "title": "CohortRow",
+  "type": "object"
+}

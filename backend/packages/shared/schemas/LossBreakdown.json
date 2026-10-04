@@ -1,0 +1,37 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cost_recovery_paise": {
+      "default": 0,
+      "title": "Cost Recovery Paise",
+      "type": "integer"
+    },
+    "forward_ship_paise": {
+      "default": 0,
+      "title": "Forward Ship Paise",
+      "type": "integer"
+    },
+    "handling_paise": {
+      "default": 0,
+      "title": "Handling Paise",
+      "type": "integer"
+    },
+    "packaging_paise": {
+      "default": 0,
+      "title": "Packaging Paise",
+      "type": "integer"
+    },
+    "reverse_ship_paise": {
+      "default": 0,
+      "title": "Reverse Ship Paise",
+      "type": "integer"
+    },
+    "writeoff_paise": {
+      "default": 0,
+      "title": "Writeoff Paise",
+      "type": "integer"
+    }
+  },
+  "title": "LossBreakdown",
+  "type": "object"
+}

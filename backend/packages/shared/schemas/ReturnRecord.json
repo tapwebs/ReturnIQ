@@ -1,0 +1,120 @@
+{
+  "$defs": {
+    "QcResult": {
+      "enum": [
+        "UNUSED",
+        "USED",
+        "DAMAGED_BY_CUSTOMER",
+        "UNKNOWN"
+      ],
+      "title": "QcResult",
+      "type": "string"
+    },
+    "ReturnReason": {
+      "enum": [
+        "SIZE_FIT",
+        "CHANGED_MIND",
+        "NOT_AS_DESCRIBED",
+        "DEFECTIVE",
+        "DAMAGED_IN_TRANSIT",
+        "WRONG_ITEM",
+        "OTHER"
+      ],
+      "title": "ReturnReason",
+      "type": "string"
+    },
+    "ReturnStatus": {
+      "enum": [
+        "REQUESTED",
+        "ACCEPTED",
+        "REJECTED",
+        "REFUNDED"
+      ],
+      "title": "ReturnStatus",
+      "type": "string"
+    },
+    "TtrBucket": {
+      "enum": [
+        "LT_6H",
+        "H6_24",
+        "D1_3",
+        "D3_7",
+        "GT_7D",
+        "UNKNOWN"
+      ],
+      "title": "TtrBucket",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "order_id": {
+      "title": "Order Id",
+      "type": "string"
+    },
+    "qc_result": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/QcResult"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "return_accepted_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Return Accepted At"
+    },
+    "return_id": {
+      "title": "Return Id",
+      "type": "string"
+    },
+    "return_reason": {
+      "$ref": "#/$defs/ReturnReason"
+    },
+    "return_requested_at": {
+      "format": "date-time",
+      "title": "Return Requested At",
+      "type": "string"
+    },
+    "return_status": {
+      "$ref": "#/$defs/ReturnStatus"
+    },
+    "ttr_bucket": {
+      "$ref": "#/$defs/TtrBucket",
+      "default": "UNKNOWN"
+    },
+    "ttr_h": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ttr H"
+    }
+  },
+  "required": [
+    "return_id",
+    "order_id",
+    "return_requested_at",
+    "return_reason",
+    "return_status"
+  ],
+  "title": "ReturnRecord",
+  "type": "object"
+}

@@ -1,0 +1,93 @@
+{
+  "data": {
+    "cohort_compare": [
+      {
+        "cohort": "FLAGGED",
+        "loss_paise": 1573440,
+        "median_ttr_h": 4.38,
+        "return_rate": 6.4,
+        "returns": 67
+      },
+      {
+        "cohort": "NOT_FLAGGED",
+        "loss_paise": 3874140,
+        "median_ttr_h": 24.09,
+        "return_rate": 18.53,
+        "returns": 194
+      }
+    ],
+    "loss_waterfall": [
+      {
+        "amount_paise": 1476000,
+        "assumed": true,
+        "label": "Forward shipping"
+      },
+      {
+        "amount_paise": 1968000,
+        "assumed": true,
+        "label": "Reverse shipping"
+      },
+      {
+        "amount_paise": 369000,
+        "assumed": true,
+        "label": "Packaging"
+      },
+      {
+        "amount_paise": 615000,
+        "assumed": true,
+        "label": "Handling"
+      },
+      {
+        "amount_paise": 1019580,
+        "assumed": true,
+        "label": "Write-off"
+      },
+      {
+        "amount_paise": 0,
+        "assumed": true,
+        "label": "Cost recovery"
+      },
+      {
+        "amount_paise": 5447580,
+        "assumed": false,
+        "label": "Observed operating loss"
+      }
+    ],
+    "median_ttr_h": 16.56,
+    "ttr_buckets": [
+      {
+        "bucket": "LT_6H",
+        "count": 91
+      },
+      {
+        "bucket": "H6_24",
+        "count": 57
+      },
+      {
+        "bucket": "D1_3",
+        "count": 58
+      },
+      {
+        "bucket": "D3_7",
+        "count": 33
+      },
+      {
+        "bucket": "GT_7D",
+        "count": 16
+      },
+      {
+        "bucket": "UNKNOWN",
+        "count": 6
+      }
+    ]
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

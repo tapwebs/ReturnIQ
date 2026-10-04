@@ -1,0 +1,123 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "FASHION",
+        "BEAUTY",
+        "ELECTRONICS",
+        "LIFESTYLE",
+        "OTHER"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "DeliveryStatus": {
+      "enum": [
+        "DELIVERED",
+        "RTO",
+        "IN_TRANSIT",
+        "NDR",
+        "LOST"
+      ],
+      "title": "DeliveryStatus",
+      "type": "string"
+    },
+    "PaymentMode": {
+      "enum": [
+        "COD",
+        "PREPAID",
+        "PARTIAL_COD"
+      ],
+      "title": "PaymentMode",
+      "type": "string"
+    },
+    "ReturnReason": {
+      "enum": [
+        "SIZE_FIT",
+        "CHANGED_MIND",
+        "NOT_AS_DESCRIBED",
+        "DEFECTIVE",
+        "DAMAGED_IN_TRANSIT",
+        "WRONG_ITEM",
+        "OTHER"
+      ],
+      "title": "ReturnReason",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Category"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "delivered_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Delivered At"
+    },
+    "delivery_status": {
+      "$ref": "#/$defs/DeliveryStatus",
+      "default": "DELIVERED"
+    },
+    "order_amount_paise": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Order Amount Paise",
+      "type": "integer"
+    },
+    "order_date": {
+      "format": "date-time",
+      "title": "Order Date",
+      "type": "string"
+    },
+    "payment_mode": {
+      "$ref": "#/$defs/PaymentMode",
+      "default": "PREPAID"
+    },
+    "return_reason": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReturnReason"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "return_requested_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Return Requested At"
+    }
+  },
+  "required": [
+    "order_date"
+  ],
+  "title": "PreviewHistoryItem",
+  "type": "object"
+}

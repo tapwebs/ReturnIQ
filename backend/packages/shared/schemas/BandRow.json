@@ -1,0 +1,59 @@
+{
+  "$defs": {
+    "RiskLevel": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "INSUFFICIENT_DATA"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "band": {
+      "$ref": "#/$defs/RiskLevel"
+    },
+    "lift_vs_overall": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Lift Vs Overall"
+    },
+    "observed_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Rate"
+    },
+    "orders": {
+      "title": "Orders",
+      "type": "integer"
+    },
+    "pct_orders": {
+      "title": "Pct Orders",
+      "type": "number"
+    }
+  },
+  "required": [
+    "band",
+    "orders",
+    "pct_orders",
+    "observed_rate",
+    "lift_vs_overall"
+  ],
+  "title": "BandRow",
+  "type": "object"
+}

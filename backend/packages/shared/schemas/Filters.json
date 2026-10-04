@@ -1,0 +1,86 @@
+{
+  "$defs": {
+    "PaymentMode": {
+      "enum": [
+        "COD",
+        "PREPAID",
+        "PARTIAL_COD"
+      ],
+      "title": "PaymentMode",
+      "type": "string"
+    },
+    "Stage": {
+      "enum": [
+        "PRE_DISPATCH",
+        "POST_DELIVERY"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dataset Id"
+    },
+    "from": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "From"
+    },
+    "payment_mode": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PaymentMode"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "stage": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Stage"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "to": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "To"
+    }
+  },
+  "title": "Filters",
+  "type": "object"
+}

@@ -1,0 +1,311 @@
+{
+  "$defs": {
+    "BandRow": {
+      "additionalProperties": false,
+      "properties": {
+        "band": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "lift_vs_overall": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Lift Vs Overall"
+        },
+        "observed_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Rate"
+        },
+        "orders": {
+          "title": "Orders",
+          "type": "integer"
+        },
+        "pct_orders": {
+          "title": "Pct Orders",
+          "type": "number"
+        }
+      },
+      "required": [
+        "band",
+        "orders",
+        "pct_orders",
+        "observed_rate",
+        "lift_vs_overall"
+      ],
+      "title": "BandRow",
+      "type": "object"
+    },
+    "CalibrationBin": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "mean_predicted": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Predicted"
+        },
+        "observed_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Rate"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper",
+        "count",
+        "mean_predicted",
+        "observed_rate"
+      ],
+      "title": "CalibrationBin",
+      "type": "object"
+    },
+    "CalibrationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "bins": {
+          "items": {
+            "$ref": "#/$defs/CalibrationBin"
+          },
+          "title": "Bins",
+          "type": "array"
+        },
+        "brier": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Brier"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bins",
+        "brier",
+        "label"
+      ],
+      "title": "CalibrationReport",
+      "type": "object"
+    },
+    "ModelMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "auc": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Auc"
+        },
+        "precision_at_12": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Precision At 12"
+        },
+        "preventable_captured_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Preventable Captured Pct"
+        },
+        "recall_at_12": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Recall At 12"
+        },
+        "rules_auc": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rules Auc"
+        }
+      },
+      "required": [
+        "auc",
+        "precision_at_12",
+        "recall_at_12",
+        "preventable_captured_pct"
+      ],
+      "title": "ModelMetrics",
+      "type": "object"
+    },
+    "Provenance": {
+      "enum": [
+        "SYNTHETIC",
+        "SELLER_UPLOADED",
+        "LIVE"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    },
+    "RiskLevel": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "INSUFFICIENT_DATA"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "ScoringMethod": {
+      "enum": [
+        "RULES",
+        "RULES_AND_MODEL"
+      ],
+      "title": "ScoringMethod",
+      "type": "string"
+    },
+    "Stage": {
+      "enum": [
+        "PRE_DISPATCH",
+        "POST_DELIVERY"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "band_table": {
+      "items": {
+        "$ref": "#/$defs/BandRow"
+      },
+      "title": "Band Table",
+      "type": "array"
+    },
+    "calibration": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CalibrationReport"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "feature_names": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Feature Names",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "metrics": {
+      "$ref": "#/$defs/ModelMetrics"
+    },
+    "note": {
+      "default": "simulated, on planted synthetic patterns",
+      "title": "Note",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "rows": {
+      "title": "Rows",
+      "type": "integer"
+    },
+    "scoring_method": {
+      "$ref": "#/$defs/ScoringMethod",
+      "default": "RULES_AND_MODEL"
+    },
+    "split": {
+      "default": "TIME_BASED",
+      "title": "Split",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/Stage"
+    },
+    "trained_at": {
+      "format": "date-time",
+      "title": "Trained At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "stage",
+    "trained_at",
+    "rows",
+    "metrics",
+    "provenance"
+  ],
+  "title": "ModelInfo",
+  "type": "object"
+}

@@ -1,0 +1,163 @@
+{
+  "data": {
+    "assessments": [
+      {
+        "alternative_actions": [
+          "PREPAID_ONLY",
+          "HOLD_FULFILMENT"
+        ],
+        "as_of": "2026-05-06T04:30:00Z",
+        "components": {
+          "anomaly": null,
+          "ml": null,
+          "rule": 92.5
+        },
+        "confidence": 0.7,
+        "customer_id": "cus_scn_02",
+        "id": "ras_253fb9e0248a",
+        "latency_ms": 1.0,
+        "missing_fields": [],
+        "model_version": null,
+        "order_id": "ord_scn_02",
+        "provenance": "SYNTHETIC",
+        "reason": "Risk index 92 (HIGH): Cash-on-delivery order; 2 earlier order(s) returned to origin; Most earlier deliveries by this customer failed.",
+        "recommended_action": "OTP_VERIFICATION",
+        "risk_level": "HIGH",
+        "risk_score": 92,
+        "rule_version": "rules-1.0.0",
+        "scoring_method": "RULES",
+        "signals": [
+          {
+            "code": "COD_WITH_PRIOR_RTO",
+            "contribution": 40.0,
+            "evidence": "payment=COD, prior_rto=2",
+            "label": "Cash-on-delivery order; 2 earlier order(s) returned to origin",
+            "source": "RULE"
+          },
+          {
+            "code": "RTO_RATE_HIGH",
+            "contribution": 20.0,
+            "evidence": "prior_rto=2, orders=2",
+            "label": "Most earlier deliveries by this customer failed",
+            "source": "RULE"
+          },
+          {
+            "code": "RISKY_PINCODE_LIFT",
+            "contribution": 14.3,
+            "evidence": "pincode_lift=1.96 vs seller baseline",
+            "label": "Pincode has above-average failed deliveries or returns for this seller",
+            "source": "RULE"
+          },
+          {
+            "code": "FAILED_DELIVERY_HISTORY",
+            "contribution": 10.0,
+            "evidence": "prior_failed=2",
+            "label": "2 earlier failed deliveries",
+            "source": "RULE"
+          },
+          {
+            "code": "HIGH_RETURN_CATEGORY",
+            "contribution": 6.0,
+            "evidence": "category_return_lift=1.52",
+            "label": "This category is returned more often than the seller average",
+            "source": "RULE"
+          },
+          {
+            "code": "HIGH_RETURN_SKU",
+            "contribution": 2.2,
+            "evidence": "sku_return_lift=1.50",
+            "label": "This SKU is returned more often than the seller average",
+            "source": "RULE"
+          }
+        ],
+        "stage": "PRE_DISPATCH",
+        "weights": {
+          "anomaly": null,
+          "ml": null,
+          "rule": 1.0
+        }
+      }
+    ],
+    "events": [
+      {
+        "at": "2026-05-06T04:30:00Z",
+        "detail": "COD order placed",
+        "kind": "ORDER_PLACED"
+      },
+      {
+        "at": "2026-05-06T10:30:00Z",
+        "detail": "Dispatched",
+        "kind": "SHIPPED"
+      },
+      {
+        "at": "2026-05-10T10:30:00Z",
+        "detail": "Delivered",
+        "kind": "DELIVERED"
+      }
+    ],
+    "order": {
+      "category": "FASHION",
+      "customer_id": "cus_scn_02",
+      "delivery_status": "DELIVERED",
+      "order_amount_paise": 149900,
+      "order_date": "2026-05-06T04:30:00Z",
+      "order_id": "ord_scn_02",
+      "payment_mode": "COD",
+      "pincode": "431651",
+      "quantity": 1,
+      "return_status": null,
+      "risk_level": "HIGH",
+      "risk_score": 92,
+      "sku_id": "sku_scn_FAS"
+    },
+    "prior_orders": [
+      {
+        "category": "FASHION",
+        "customer_id": "cus_scn_02",
+        "delivery_status": "RTO",
+        "order_amount_paise": 129900,
+        "order_date": "2026-04-01T04:30:00Z",
+        "order_id": "ord_scn_02_h1",
+        "payment_mode": "COD",
+        "pincode": "431651",
+        "quantity": 1,
+        "return_status": null,
+        "risk_level": null,
+        "risk_score": null,
+        "sku_id": "sku_scn_FAS"
+      },
+      {
+        "category": "FASHION",
+        "customer_id": "cus_scn_02",
+        "delivery_status": "RTO",
+        "order_amount_paise": 139900,
+        "order_date": "2026-04-16T04:30:00Z",
+        "order_id": "ord_scn_02_h2",
+        "payment_mode": "COD",
+        "pincode": "431651",
+        "quantity": 1,
+        "return_status": null,
+        "risk_level": null,
+        "risk_score": null,
+        "sku_id": "sku_scn_FAS"
+      }
+    ],
+    "return": null,
+    "shipment": {
+      "delivered_at": "2026-05-10T10:30:00Z",
+      "delivery_attempts": 1,
+      "delivery_status": "DELIVERED",
+      "order_id": "ord_scn_02",
+      "shipped_at": "2026-05-06T10:30:00Z"
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

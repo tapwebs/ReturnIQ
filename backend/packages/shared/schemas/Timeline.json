@@ -1,0 +1,149 @@
+{
+  "$defs": {
+    "CohortRow": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort": {
+          "title": "Cohort",
+          "type": "string"
+        },
+        "loss_paise": {
+          "title": "Loss Paise",
+          "type": "integer"
+        },
+        "median_ttr_h": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Median Ttr H"
+        },
+        "return_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Return Rate"
+        },
+        "returns": {
+          "title": "Returns",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cohort",
+        "returns",
+        "median_ttr_h",
+        "return_rate",
+        "loss_paise"
+      ],
+      "title": "CohortRow",
+      "type": "object"
+    },
+    "TtrBucket": {
+      "enum": [
+        "LT_6H",
+        "H6_24",
+        "D1_3",
+        "D3_7",
+        "GT_7D",
+        "UNKNOWN"
+      ],
+      "title": "TtrBucket",
+      "type": "string"
+    },
+    "TtrBucketCount": {
+      "additionalProperties": false,
+      "properties": {
+        "bucket": {
+          "$ref": "#/$defs/TtrBucket"
+        },
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bucket",
+        "count"
+      ],
+      "title": "TtrBucketCount",
+      "type": "object"
+    },
+    "WaterfallStep": {
+      "additionalProperties": false,
+      "properties": {
+        "amount_paise": {
+          "title": "Amount Paise",
+          "type": "integer"
+        },
+        "assumed": {
+          "default": false,
+          "title": "Assumed",
+          "type": "boolean"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "amount_paise"
+      ],
+      "title": "WaterfallStep",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cohort_compare": {
+      "items": {
+        "$ref": "#/$defs/CohortRow"
+      },
+      "title": "Cohort Compare",
+      "type": "array"
+    },
+    "loss_waterfall": {
+      "items": {
+        "$ref": "#/$defs/WaterfallStep"
+      },
+      "title": "Loss Waterfall",
+      "type": "array"
+    },
+    "median_ttr_h": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Median Ttr H"
+    },
+    "ttr_buckets": {
+      "items": {
+        "$ref": "#/$defs/TtrBucketCount"
+      },
+      "title": "Ttr Buckets",
+      "type": "array"
+    }
+  },
+  "required": [
+    "ttr_buckets",
+    "cohort_compare",
+    "loss_waterfall"
+  ],
+  "title": "Timeline",
+  "type": "object"
+}

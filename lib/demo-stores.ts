@@ -1,0 +1,1 @@
+export const demoStores=[{id:'nimbus',name:'Nimbus Store',category:'Fashion & lifestyle',initial:'N'},{id:'aurora',name:'Aurora Living',category:'Home & interiors',initial:'A'},{id:'circuit',name:'Circuit Supply',category:'Electronics & accessories',initial:'C'}];

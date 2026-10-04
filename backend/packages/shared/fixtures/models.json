@@ -1,0 +1,166 @@
+{
+  "data": [
+    {
+      "band_table": [
+        {
+          "band": "LOW",
+          "lift_vs_overall": 0.6060291060291061,
+          "observed_rate": 0.4230769230769231,
+          "orders": 26,
+          "pct_orders": 49.1
+        },
+        {
+          "band": "MEDIUM",
+          "lift_vs_overall": 1.2277992277992278,
+          "observed_rate": 0.8571428571428571,
+          "orders": 7,
+          "pct_orders": 13.2
+        },
+        {
+          "band": "HIGH",
+          "lift_vs_overall": 1.4324324324324325,
+          "observed_rate": 1.0,
+          "orders": 20,
+          "pct_orders": 37.7
+        },
+        {
+          "band": "INSUFFICIENT_DATA",
+          "lift_vs_overall": null,
+          "observed_rate": null,
+          "orders": 0,
+          "pct_orders": 0.0
+        }
+      ],
+      "calibration": {
+        "bins": [
+          {
+            "count": 25,
+            "lower": 0.0,
+            "mean_predicted": 0.0,
+            "observed_rate": 0.4,
+            "upper": 0.1
+          },
+          {
+            "count": 0,
+            "lower": 0.1,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.2
+          },
+          {
+            "count": 0,
+            "lower": 0.2,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.3
+          },
+          {
+            "count": 0,
+            "lower": 0.3,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.4
+          },
+          {
+            "count": 0,
+            "lower": 0.4,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.5
+          },
+          {
+            "count": 0,
+            "lower": 0.5,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.6
+          },
+          {
+            "count": 0,
+            "lower": 0.6,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.7
+          },
+          {
+            "count": 3,
+            "lower": 0.7,
+            "mean_predicted": 0.75,
+            "observed_rate": 0.6667,
+            "upper": 0.8
+          },
+          {
+            "count": 0,
+            "lower": 0.8,
+            "mean_predicted": null,
+            "observed_rate": null,
+            "upper": 0.9
+          },
+          {
+            "count": 25,
+            "lower": 0.9,
+            "mean_predicted": 0.9959,
+            "observed_rate": 1.0,
+            "upper": 1.0
+          }
+        ],
+        "brier": 0.20184,
+        "label": "test slice, calibrated probability vs observed rate (simulated, on planted synthetic patterns)"
+      },
+      "feature_names": [
+        "is_cod",
+        "amount_paise",
+        "value_ratio",
+        "cat_code",
+        "prior_orders",
+        "prior_delivered",
+        "prior_rto",
+        "prior_failed",
+        "prior_returns",
+        "prior_elig_returns",
+        "prior_return_rate",
+        "prior_rto_rate",
+        "recent_returns_30d",
+        "prior_fast_share",
+        "cust_median_ttr",
+        "pin_rto_lift",
+        "pin_ret_lift",
+        "sku_ret_lift",
+        "cat_ret_lift",
+        "ttr_h",
+        "ttr_known",
+        "ttr_ratio",
+        "ttr_z",
+        "seller_median_ttr",
+        "is_fast_ttr",
+        "delivery_attempts",
+        "reason_eligible",
+        "same_cat_returns"
+      ],
+      "id": "mdl_s2_b84a0b",
+      "metrics": {
+        "auc": 0.8547297297297298,
+        "precision_at_12": 1.0,
+        "preventable_captured_pct": 18.92,
+        "recall_at_12": 0.1891891891891892,
+        "rules_auc": 0.7939189189189189
+      },
+      "note": "simulated, on planted synthetic patterns",
+      "provenance": "SYNTHETIC",
+      "rows": 208,
+      "scoring_method": "RULES_AND_MODEL",
+      "split": "TIME_BASED",
+      "stage": "POST_DELIVERY",
+      "trained_at": "2026-07-04T14:23:39Z"
+    }
+  ],
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

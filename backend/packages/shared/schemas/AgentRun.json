@@ -1,0 +1,132 @@
+{
+  "$defs": {
+    "AgentProvider": {
+      "enum": [
+        "GEMINI",
+        "GROQ",
+        "PLAYBOOK"
+      ],
+      "title": "AgentProvider",
+      "type": "string"
+    },
+    "AgentRunStatus": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "AWAITING_APPROVAL",
+        "EXECUTING",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "title": "AgentRunStatus",
+      "type": "string"
+    },
+    "AgentStep": {
+      "additionalProperties": false,
+      "properties": {
+        "idx": {
+          "title": "Idx",
+          "type": "integer"
+        },
+        "input": {
+          "additionalProperties": true,
+          "title": "Input",
+          "type": "object"
+        },
+        "ms": {
+          "default": 0,
+          "title": "Ms",
+          "type": "integer"
+        },
+        "output_summary": {
+          "default": "",
+          "title": "Output Summary",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/AgentStepStatus"
+        },
+        "tool": {
+          "title": "Tool",
+          "type": "string"
+        }
+      },
+      "required": [
+        "idx",
+        "tool",
+        "status"
+      ],
+      "title": "AgentStep",
+      "type": "object"
+    },
+    "AgentStepStatus": {
+      "enum": [
+        "DONE",
+        "ERROR"
+      ],
+      "title": "AgentStepStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "additionalProperties": true,
+      "title": "Context",
+      "type": "object"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "proposals": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Proposals",
+      "type": "array"
+    },
+    "provider": {
+      "$ref": "#/$defs/AgentProvider"
+    },
+    "status": {
+      "$ref": "#/$defs/AgentRunStatus"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/AgentStep"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+    },
+    "task": {
+      "title": "Task",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "task",
+    "provider",
+    "status"
+  ],
+  "title": "AgentRun",
+  "type": "object"
+}

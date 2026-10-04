@@ -1,0 +1,55 @@
+{
+  "$defs": {
+    "ReadinessMode": {
+      "enum": [
+        "OBSERVATION",
+        "ACTIVE"
+      ],
+      "title": "ReadinessMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "completed_return_windows": {
+      "title": "Completed Return Windows",
+      "type": "integer"
+    },
+    "days_observed": {
+      "title": "Days Observed",
+      "type": "number"
+    },
+    "mode": {
+      "$ref": "#/$defs/ReadinessMode"
+    },
+    "orders": {
+      "title": "Orders",
+      "type": "integer"
+    },
+    "ready": {
+      "title": "Ready",
+      "type": "boolean"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    },
+    "timestamp_completeness": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Timestamp Completeness",
+      "type": "number"
+    }
+  },
+  "required": [
+    "mode",
+    "days_observed",
+    "orders",
+    "completed_return_windows",
+    "timestamp_completeness",
+    "ready",
+    "reason"
+  ],
+  "title": "Readiness",
+  "type": "object"
+}

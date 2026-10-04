@@ -1,0 +1,65 @@
+{
+  "data": {
+    "assumed_fields": [
+      "cost_recovery",
+      "effectiveness",
+      "forward_ship",
+      "friction_margin_loss",
+      "handling",
+      "intervention_cost",
+      "packaging",
+      "reverse_ship",
+      "writeoff"
+    ],
+    "effectiveness": {
+      "base": 0.4,
+      "high": 0.6,
+      "low": 0.2
+    },
+    "eligible_loss_paise": 1573440,
+    "flagged_eligible_returns": 67,
+    "friction_margin_loss_paise": 166246,
+    "intervention_cost_paise": 67000,
+    "loss_avoided_per_100_paise": {
+      "base": 33011,
+      "high": 59235,
+      "low": 6787
+    },
+    "net_avoidable": {
+      "base": 396130,
+      "high": 710818,
+      "low": 81442
+    },
+    "note": "Scenario estimate on assumed costs, not realised savings.",
+    "observed": {
+      "assumed_fields": [
+        "forward_ship",
+        "reverse_ship",
+        "packaging",
+        "handling",
+        "writeoff",
+        "cost_recovery"
+      ],
+      "breakdown": {
+        "cost_recovery_paise": 0,
+        "forward_ship_paise": 1476000,
+        "handling_paise": 615000,
+        "packaging_paise": 369000,
+        "reverse_ship_paise": 1968000,
+        "writeoff_paise": 1019580
+      },
+      "observed_paise": 5447580,
+      "returns_counted": 246,
+      "rto_observed_paise": 1999500
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

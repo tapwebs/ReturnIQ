@@ -1,0 +1,75 @@
+{
+  "$defs": {
+    "Provenance": {
+      "enum": [
+        "SYNTHETIC",
+        "SELLER_UPLOADED",
+        "LIVE"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "first_order_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "First Order At"
+    },
+    "last_order_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last Order At"
+    },
+    "orders": {
+      "title": "Orders",
+      "type": "integer"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "returns": {
+      "title": "Returns",
+      "type": "integer"
+    },
+    "shipments": {
+      "title": "Shipments",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "provenance",
+    "orders",
+    "shipments",
+    "returns"
+  ],
+  "title": "DatasetInfo",
+  "type": "object"
+}

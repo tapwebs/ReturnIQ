@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "FASHION",
+        "BEAUTY",
+        "ELECTRONICS",
+        "LIFESTYLE",
+        "OTHER"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "DeliveryStatus": {
+      "enum": [
+        "DELIVERED",
+        "RTO",
+        "IN_TRANSIT",
+        "NDR",
+        "LOST"
+      ],
+      "title": "DeliveryStatus",
+      "type": "string"
+    },
+    "Order": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Category"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "delivery_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DeliveryStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "order_amount_paise": {
+          "minimum": 0,
+          "title": "Order Amount Paise",
+          "type": "integer"
+        },
+        "order_date": {
+          "format": "date-time",
+          "title": "Order Date",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "payment_mode": {
+          "$ref": "#/$defs/PaymentMode"
+        },
+        "pincode": {
+          "anyOf": [
+            {
+              "pattern": "^\\d{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pincode"
+        },
+        "quantity": {
+          "minimum": 1,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "return_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReturnStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk_level": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RiskLevel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk_score": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Score"
+        },
+        "sku_id": {
+          "title": "Sku Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "sku_id",
+        "quantity",
+        "payment_mode",
+        "order_amount_paise"
+      ],
+      "title": "Order",
+      "type": "object"
+    },
+    "PaymentMode": {
+      "enum": [
+        "COD",
+        "PREPAID",
+        "PARTIAL_COD"
+      ],
+      "title": "PaymentMode",
+      "type": "string"
+    },
+    "ReturnStatus": {
+      "enum": [
+        "REQUESTED",
+        "ACCEPTED",
+        "REJECTED",
+        "REFUNDED"
+      ],
+      "title": "ReturnStatus",
+      "type": "string"
+    },
+    "RiskLevel": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "INSUFFICIENT_DATA"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$ref": "#/$defs/Order"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "next_cursor": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Next Cursor"
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "title": "OrdersPage",
+  "type": "object"
+}

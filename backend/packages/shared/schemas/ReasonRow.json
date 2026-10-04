@@ -1,0 +1,43 @@
+{
+  "$defs": {
+    "ReturnReason": {
+      "enum": [
+        "SIZE_FIT",
+        "CHANGED_MIND",
+        "NOT_AS_DESCRIBED",
+        "DEFECTIVE",
+        "DAMAGED_IN_TRANSIT",
+        "WRONG_ITEM",
+        "OTHER"
+      ],
+      "title": "ReturnReason",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "title": "Count",
+      "type": "integer"
+    },
+    "preventable_eligible": {
+      "title": "Preventable Eligible",
+      "type": "boolean"
+    },
+    "reason": {
+      "$ref": "#/$defs/ReturnReason"
+    },
+    "share": {
+      "title": "Share",
+      "type": "number"
+    }
+  },
+  "required": [
+    "reason",
+    "count",
+    "share",
+    "preventable_eligible"
+  ],
+  "title": "ReasonRow",
+  "type": "object"
+}

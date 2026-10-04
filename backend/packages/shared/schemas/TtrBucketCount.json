@@ -1,0 +1,32 @@
+{
+  "$defs": {
+    "TtrBucket": {
+      "enum": [
+        "LT_6H",
+        "H6_24",
+        "D1_3",
+        "D3_7",
+        "GT_7D",
+        "UNKNOWN"
+      ],
+      "title": "TtrBucket",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bucket": {
+      "$ref": "#/$defs/TtrBucket"
+    },
+    "count": {
+      "title": "Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "bucket",
+    "count"
+  ],
+  "title": "TtrBucketCount",
+  "type": "object"
+}

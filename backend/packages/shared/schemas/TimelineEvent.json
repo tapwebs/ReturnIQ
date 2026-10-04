@@ -1,0 +1,25 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "at": {
+      "format": "date-time",
+      "title": "At",
+      "type": "string"
+    },
+    "detail": {
+      "title": "Detail",
+      "type": "string"
+    },
+    "kind": {
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "at",
+    "kind",
+    "detail"
+  ],
+  "title": "TimelineEvent",
+  "type": "object"
+}

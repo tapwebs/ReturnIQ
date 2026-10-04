@@ -1,0 +1,42 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "forward_ship_paise": {
+      "default": 6000,
+      "title": "Forward Ship Paise",
+      "type": "integer"
+    },
+    "friction_margin_loss_pct": {
+      "default": 2.0,
+      "title": "Friction Margin Loss Pct",
+      "type": "number"
+    },
+    "handling_paise": {
+      "default": 2500,
+      "title": "Handling Paise",
+      "type": "integer"
+    },
+    "intervention_cost_paise": {
+      "default": 1000,
+      "title": "Intervention Cost Paise",
+      "type": "integer"
+    },
+    "packaging_paise": {
+      "default": 1500,
+      "title": "Packaging Paise",
+      "type": "integer"
+    },
+    "reverse_ship_paise": {
+      "default": 8000,
+      "title": "Reverse Ship Paise",
+      "type": "integer"
+    },
+    "writeoff_pct": {
+      "default": 10.0,
+      "title": "Writeoff Pct",
+      "type": "number"
+    }
+  },
+  "title": "CostDefaults",
+  "type": "object"
+}

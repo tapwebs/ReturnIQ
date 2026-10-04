@@ -1,0 +1,29 @@
+{
+  "data": {
+    "as_of": "2026-04-26T04:30:00Z",
+    "categories": {
+      "FASHION": 6
+    },
+    "customer_id": "cus_scn_04",
+    "delivered": 6,
+    "eligible_returns": 4,
+    "failed_deliveries": 0,
+    "fast_return_share": 1.0,
+    "flagged_returns": 2,
+    "median_ttr_h": 3.5,
+    "orders": 6,
+    "return_rate": 0.6667,
+    "returns": 4,
+    "rto": 0,
+    "summary": "6 orders, 4 returns (4 preventable-type), 0 returned-to-origin."
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

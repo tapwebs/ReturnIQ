@@ -1,0 +1,178 @@
+{
+  "$defs": {
+    "Effectiveness": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "default": 0.4,
+          "title": "Base",
+          "type": "number"
+        },
+        "high": {
+          "default": 0.6,
+          "title": "High",
+          "type": "number"
+        },
+        "low": {
+          "default": 0.2,
+          "title": "Low",
+          "type": "number"
+        }
+      },
+      "title": "Effectiveness",
+      "type": "object"
+    },
+    "LossBreakdown": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_recovery_paise": {
+          "default": 0,
+          "title": "Cost Recovery Paise",
+          "type": "integer"
+        },
+        "forward_ship_paise": {
+          "default": 0,
+          "title": "Forward Ship Paise",
+          "type": "integer"
+        },
+        "handling_paise": {
+          "default": 0,
+          "title": "Handling Paise",
+          "type": "integer"
+        },
+        "packaging_paise": {
+          "default": 0,
+          "title": "Packaging Paise",
+          "type": "integer"
+        },
+        "reverse_ship_paise": {
+          "default": 0,
+          "title": "Reverse Ship Paise",
+          "type": "integer"
+        },
+        "writeoff_paise": {
+          "default": 0,
+          "title": "Writeoff Paise",
+          "type": "integer"
+        }
+      },
+      "title": "LossBreakdown",
+      "type": "object"
+    },
+    "LossSummary": {
+      "additionalProperties": false,
+      "description": "Observed operating loss on accepted post-delivery returns (order value excluded).",
+      "properties": {
+        "assumed_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumed Fields",
+          "type": "array"
+        },
+        "breakdown": {
+          "$ref": "#/$defs/LossBreakdown"
+        },
+        "observed_paise": {
+          "title": "Observed Paise",
+          "type": "integer"
+        },
+        "returns_counted": {
+          "default": 0,
+          "title": "Returns Counted",
+          "type": "integer"
+        },
+        "rto_observed_paise": {
+          "default": 0,
+          "title": "Rto Observed Paise",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "observed_paise",
+        "breakdown"
+      ],
+      "title": "LossSummary",
+      "type": "object"
+    },
+    "ScenarioAmounts": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "title": "Base",
+          "type": "integer"
+        },
+        "high": {
+          "title": "High",
+          "type": "integer"
+        },
+        "low": {
+          "title": "Low",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "low",
+        "base",
+        "high"
+      ],
+      "title": "ScenarioAmounts",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assumed_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumed Fields",
+      "type": "array"
+    },
+    "effectiveness": {
+      "$ref": "#/$defs/Effectiveness"
+    },
+    "eligible_loss_paise": {
+      "title": "Eligible Loss Paise",
+      "type": "integer"
+    },
+    "flagged_eligible_returns": {
+      "title": "Flagged Eligible Returns",
+      "type": "integer"
+    },
+    "friction_margin_loss_paise": {
+      "title": "Friction Margin Loss Paise",
+      "type": "integer"
+    },
+    "intervention_cost_paise": {
+      "title": "Intervention Cost Paise",
+      "type": "integer"
+    },
+    "loss_avoided_per_100_paise": {
+      "$ref": "#/$defs/ScenarioAmounts"
+    },
+    "net_avoidable": {
+      "$ref": "#/$defs/ScenarioAmounts"
+    },
+    "note": {
+      "default": "Scenario estimate on assumed costs, not realised savings.",
+      "title": "Note",
+      "type": "string"
+    },
+    "observed": {
+      "$ref": "#/$defs/LossSummary"
+    }
+  },
+  "required": [
+    "observed",
+    "eligible_loss_paise",
+    "flagged_eligible_returns",
+    "intervention_cost_paise",
+    "friction_margin_loss_paise",
+    "net_avoidable",
+    "loss_avoided_per_100_paise",
+    "effectiveness"
+  ],
+  "title": "LossEstimate",
+  "type": "object"
+}

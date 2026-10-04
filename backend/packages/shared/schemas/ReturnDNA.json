@@ -1,0 +1,110 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "as_of": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "As Of"
+    },
+    "categories": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Categories",
+      "type": "object"
+    },
+    "customer_id": {
+      "title": "Customer Id",
+      "type": "string"
+    },
+    "delivered": {
+      "title": "Delivered",
+      "type": "integer"
+    },
+    "eligible_returns": {
+      "title": "Eligible Returns",
+      "type": "integer"
+    },
+    "failed_deliveries": {
+      "title": "Failed Deliveries",
+      "type": "integer"
+    },
+    "fast_return_share": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Fast Return Share"
+    },
+    "flagged_returns": {
+      "title": "Flagged Returns",
+      "type": "integer"
+    },
+    "median_ttr_h": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Median Ttr H"
+    },
+    "orders": {
+      "title": "Orders",
+      "type": "integer"
+    },
+    "return_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Return Rate"
+    },
+    "returns": {
+      "title": "Returns",
+      "type": "integer"
+    },
+    "rto": {
+      "title": "Rto",
+      "type": "integer"
+    },
+    "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "customer_id",
+    "orders",
+    "delivered",
+    "rto",
+    "failed_deliveries",
+    "returns",
+    "eligible_returns",
+    "return_rate",
+    "median_ttr_h",
+    "fast_return_share",
+    "flagged_returns"
+  ],
+  "title": "ReturnDNA",
+  "type": "object"
+}

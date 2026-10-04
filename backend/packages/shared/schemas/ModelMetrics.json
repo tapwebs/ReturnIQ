@@ -1,0 +1,69 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "auc": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Auc"
+    },
+    "precision_at_12": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Precision At 12"
+    },
+    "preventable_captured_pct": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Preventable Captured Pct"
+    },
+    "recall_at_12": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Recall At 12"
+    },
+    "rules_auc": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rules Auc"
+    }
+  },
+  "required": [
+    "auc",
+    "precision_at_12",
+    "recall_at_12",
+    "preventable_captured_pct"
+  ],
+  "title": "ModelMetrics",
+  "type": "object"
+}

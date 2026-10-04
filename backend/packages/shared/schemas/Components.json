@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "anomaly": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Anomaly"
+    },
+    "ml": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ml"
+    },
+    "rule": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rule"
+    }
+  },
+  "title": "Components",
+  "type": "object"
+}

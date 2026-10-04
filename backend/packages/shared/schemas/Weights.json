@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "anomaly": {
+      "default": 0.2,
+      "title": "Anomaly",
+      "type": "number"
+    },
+    "ml": {
+      "default": 0.4,
+      "title": "Ml",
+      "type": "number"
+    },
+    "rule": {
+      "default": 0.4,
+      "title": "Rule",
+      "type": "number"
+    }
+  },
+  "title": "Weights",
+  "type": "object"
+}

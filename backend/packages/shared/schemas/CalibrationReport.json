@@ -1,0 +1,84 @@
+{
+  "$defs": {
+    "CalibrationBin": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "mean_predicted": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Predicted"
+        },
+        "observed_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Rate"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper",
+        "count",
+        "mean_predicted",
+        "observed_rate"
+      ],
+      "title": "CalibrationBin",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bins": {
+      "items": {
+        "$ref": "#/$defs/CalibrationBin"
+      },
+      "title": "Bins",
+      "type": "array"
+    },
+    "brier": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Brier"
+    },
+    "label": {
+      "title": "Label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bins",
+    "brier",
+    "label"
+  ],
+  "title": "CalibrationReport",
+  "type": "object"
+}

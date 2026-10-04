@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "AgentStepStatus": {
+      "enum": [
+        "DONE",
+        "ERROR"
+      ],
+      "title": "AgentStepStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "idx": {
+      "title": "Idx",
+      "type": "integer"
+    },
+    "input": {
+      "additionalProperties": true,
+      "title": "Input",
+      "type": "object"
+    },
+    "ms": {
+      "default": 0,
+      "title": "Ms",
+      "type": "integer"
+    },
+    "output_summary": {
+      "default": "",
+      "title": "Output Summary",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/AgentStepStatus"
+    },
+    "tool": {
+      "title": "Tool",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idx",
+    "tool",
+    "status"
+  ],
+  "title": "AgentStep",
+  "type": "object"
+}

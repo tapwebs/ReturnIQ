@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "returniq-contracts"
+version = "1.0.0"
+description = "ReturnIQ shared Pydantic v2 contract models (single source of truth)"
+requires-python = ">=3.11"
+dependencies = ["pydantic==2.13.5"]
+
+[tool.setuptools.packages.find]
+include = ["returniq_contracts*"]

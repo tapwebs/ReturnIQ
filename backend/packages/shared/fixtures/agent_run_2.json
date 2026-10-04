@@ -1,0 +1,36 @@
+{
+  "data": {
+    "context": {
+      "dataset_id": "ds_02d31948",
+      "order_id": "ord_scn_04"
+    },
+    "error": null,
+    "id": "run_fixture_0001",
+    "proposals": [],
+    "provider": "PLAYBOOK",
+    "status": "RUNNING",
+    "steps": [
+      {
+        "idx": 1,
+        "input": {
+          "order_id": "ord_scn_04"
+        },
+        "ms": 31,
+        "output_summary": "5 orders, 4 returns, median return time 3.5 h",
+        "status": "DONE",
+        "tool": "get_order_history"
+      }
+    ],
+    "summary": "",
+    "task": "Review this return request against our policy"
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

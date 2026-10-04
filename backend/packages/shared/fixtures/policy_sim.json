@@ -1,0 +1,21 @@
+{
+  "data": {
+    "est_net_avoidable_paise": 197416,
+    "false_positive_estimate": 0.0,
+    "note": "Estimate on observed outcomes; not a guarantee.",
+    "orders_targeted": 32,
+    "preventable_captured_pct": 13.91,
+    "returns_captured_pct": 12.26,
+    "stage": "POST_DELIVERY",
+    "top_pct": 12.0
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

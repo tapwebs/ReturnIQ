@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "returniq-engine"
+version = "0.2.0"
+description = "ReturnIQ risk engine: pure Python, no I/O, no HTTP, no DB"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas==3.0.6",
+  "numpy==2.5.3",
+  "scikit-learn==1.9.1",
+  "lightgbm==4.7.0",
+  "pydantic==2.13.5",
+  "returniq-contracts==1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.16.10", "jsonschema==4.26.0"]
+
+[tool.setuptools.packages.find]
+include = ["returniq_engine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ""
+markers = ["perf: performance measurements (run by default)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["C408", "C416"]

@@ -1,0 +1,87 @@
+{
+  "data": {
+    "alternative_actions": [
+      "PREPAID_ONLY",
+      "HOLD_FULFILMENT"
+    ],
+    "as_of": "2026-04-11T04:30:00Z",
+    "components": {
+      "anomaly": null,
+      "ml": null,
+      "rule": 71.7
+    },
+    "confidence": 0.9,
+    "customer_id": "cus_scn_04",
+    "id": "ras_6162fa88c94d",
+    "latency_ms": 1.0,
+    "missing_fields": [],
+    "model_version": null,
+    "order_id": "ord_scn_04",
+    "provenance": "SYNTHETIC",
+    "reason": "Risk index 72 (HIGH): 3 returns in 4 earlier orders; Earlier returns were mostly raised within hours of delivery.",
+    "recommended_action": "OTP_VERIFICATION",
+    "risk_level": "HIGH",
+    "risk_score": 72,
+    "rule_version": "rules-1.0.0",
+    "scoring_method": "RULES",
+    "signals": [
+      {
+        "code": "RETURN_FREQ_HIGH",
+        "contribution": 25.0,
+        "evidence": "returns=3, orders=4, rate=75%",
+        "label": "3 returns in 4 earlier orders",
+        "source": "RULE"
+      },
+      {
+        "code": "FAST_RETURN_HISTORY",
+        "contribution": 15.0,
+        "evidence": "fast_return_share=100%",
+        "label": "Earlier returns were mostly raised within hours of delivery",
+        "source": "RULE"
+      },
+      {
+        "code": "FLAGGED_PRIOR_RETURN",
+        "contribution": 15.0,
+        "evidence": "flagged_prior_returns=1",
+        "label": "An earlier return from this customer was flagged for review",
+        "source": "RULE"
+      },
+      {
+        "code": "RETURN_FREQ_RECENT",
+        "contribution": 10.0,
+        "evidence": "returns_30d=3",
+        "label": "3 returns in the last 30 days",
+        "source": "RULE"
+      },
+      {
+        "code": "HIGH_RETURN_CATEGORY",
+        "contribution": 6.0,
+        "evidence": "category_return_lift=1.56",
+        "label": "This category is returned more often than the seller average",
+        "source": "RULE"
+      },
+      {
+        "code": "HIGH_RETURN_SKU",
+        "contribution": 0.7,
+        "evidence": "sku_return_lift=1.36",
+        "label": "This SKU is returned more often than the seller average",
+        "source": "RULE"
+      }
+    ],
+    "stage": "PRE_DISPATCH",
+    "weights": {
+      "anomaly": null,
+      "ml": null,
+      "rule": 1.0
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

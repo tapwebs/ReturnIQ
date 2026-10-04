@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "base": {
+      "default": 0.4,
+      "title": "Base",
+      "type": "number"
+    },
+    "high": {
+      "default": 0.6,
+      "title": "High",
+      "type": "number"
+    },
+    "low": {
+      "default": 0.2,
+      "title": "Low",
+      "type": "number"
+    }
+  },
+  "title": "Effectiveness",
+  "type": "object"
+}

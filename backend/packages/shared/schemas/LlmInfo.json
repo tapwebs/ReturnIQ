@@ -1,0 +1,39 @@
+{
+  "$defs": {
+    "AgentProvider": {
+      "enum": [
+        "GEMINI",
+        "GROQ",
+        "PLAYBOOK"
+      ],
+      "title": "AgentProvider",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "configured": {
+      "default": false,
+      "title": "Configured",
+      "type": "boolean"
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model"
+    },
+    "provider": {
+      "$ref": "#/$defs/AgentProvider",
+      "default": "PLAYBOOK"
+    }
+  },
+  "title": "LlmInfo",
+  "type": "object"
+}

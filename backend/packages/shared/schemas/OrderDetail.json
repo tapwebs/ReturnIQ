@@ -1,0 +1,671 @@
+{
+  "$defs": {
+    "ActionType": {
+      "enum": [
+        "NORMAL_FULFILMENT",
+        "OTP_VERIFICATION",
+        "UPI_PREPAID_INCENTIVE",
+        "PARTIAL_PREPAID",
+        "PREPAID_ONLY",
+        "HOLD_FULFILMENT",
+        "SELLER_RESTRICTION",
+        "INSTANT_RETURN",
+        "PHOTO_VERIFICATION",
+        "EXCHANGE_OR_STORE_CREDIT",
+        "MANUAL_REVIEW",
+        "REFUND_AFTER_QC",
+        "RESTRICT_RETURN_METHOD",
+        "RESTRICT_COD_PINCODE",
+        "CHANGE_POLICY_THRESHOLD"
+      ],
+      "title": "ActionType",
+      "type": "string"
+    },
+    "Category": {
+      "enum": [
+        "FASHION",
+        "BEAUTY",
+        "ELECTRONICS",
+        "LIFESTYLE",
+        "OTHER"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Components": {
+      "additionalProperties": false,
+      "properties": {
+        "anomaly": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Anomaly"
+        },
+        "ml": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ml"
+        },
+        "rule": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rule"
+        }
+      },
+      "title": "Components",
+      "type": "object"
+    },
+    "DeliveryStatus": {
+      "enum": [
+        "DELIVERED",
+        "RTO",
+        "IN_TRANSIT",
+        "NDR",
+        "LOST"
+      ],
+      "title": "DeliveryStatus",
+      "type": "string"
+    },
+    "Order": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Category"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "delivery_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DeliveryStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "order_amount_paise": {
+          "minimum": 0,
+          "title": "Order Amount Paise",
+          "type": "integer"
+        },
+        "order_date": {
+          "format": "date-time",
+          "title": "Order Date",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "payment_mode": {
+          "$ref": "#/$defs/PaymentMode"
+        },
+        "pincode": {
+          "anyOf": [
+            {
+              "pattern": "^\\d{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pincode"
+        },
+        "quantity": {
+          "minimum": 1,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "return_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReturnStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk_level": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RiskLevel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk_score": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Score"
+        },
+        "sku_id": {
+          "title": "Sku Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "sku_id",
+        "quantity",
+        "payment_mode",
+        "order_amount_paise"
+      ],
+      "title": "Order",
+      "type": "object"
+    },
+    "PaymentMode": {
+      "enum": [
+        "COD",
+        "PREPAID",
+        "PARTIAL_COD"
+      ],
+      "title": "PaymentMode",
+      "type": "string"
+    },
+    "Provenance": {
+      "enum": [
+        "SYNTHETIC",
+        "SELLER_UPLOADED",
+        "LIVE"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    },
+    "QcResult": {
+      "enum": [
+        "UNUSED",
+        "USED",
+        "DAMAGED_BY_CUSTOMER",
+        "UNKNOWN"
+      ],
+      "title": "QcResult",
+      "type": "string"
+    },
+    "ReturnReason": {
+      "enum": [
+        "SIZE_FIT",
+        "CHANGED_MIND",
+        "NOT_AS_DESCRIBED",
+        "DEFECTIVE",
+        "DAMAGED_IN_TRANSIT",
+        "WRONG_ITEM",
+        "OTHER"
+      ],
+      "title": "ReturnReason",
+      "type": "string"
+    },
+    "ReturnRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "qc_result": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QcResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "return_accepted_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Return Accepted At"
+        },
+        "return_id": {
+          "title": "Return Id",
+          "type": "string"
+        },
+        "return_reason": {
+          "$ref": "#/$defs/ReturnReason"
+        },
+        "return_requested_at": {
+          "format": "date-time",
+          "title": "Return Requested At",
+          "type": "string"
+        },
+        "return_status": {
+          "$ref": "#/$defs/ReturnStatus"
+        },
+        "ttr_bucket": {
+          "$ref": "#/$defs/TtrBucket",
+          "default": "UNKNOWN"
+        },
+        "ttr_h": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ttr H"
+        }
+      },
+      "required": [
+        "return_id",
+        "order_id",
+        "return_requested_at",
+        "return_reason",
+        "return_status"
+      ],
+      "title": "ReturnRecord",
+      "type": "object"
+    },
+    "ReturnStatus": {
+      "enum": [
+        "REQUESTED",
+        "ACCEPTED",
+        "REJECTED",
+        "REFUNDED"
+      ],
+      "title": "ReturnStatus",
+      "type": "string"
+    },
+    "RiskAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "alternative_actions": {
+          "items": {
+            "$ref": "#/$defs/ActionType"
+          },
+          "title": "Alternative Actions",
+          "type": "array"
+        },
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "components": {
+          "$ref": "#/$defs/Components"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "latency_ms": {
+          "default": 0.0,
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "missing_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Fields",
+          "type": "array"
+        },
+        "model_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Version"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "recommended_action": {
+          "$ref": "#/$defs/ActionType"
+        },
+        "risk_level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "risk_score": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Score"
+        },
+        "rule_version": {
+          "title": "Rule Version",
+          "type": "string"
+        },
+        "scoring_method": {
+          "$ref": "#/$defs/ScoringMethod"
+        },
+        "signals": {
+          "items": {
+            "$ref": "#/$defs/Signal"
+          },
+          "title": "Signals",
+          "type": "array"
+        },
+        "stage": {
+          "$ref": "#/$defs/Stage"
+        },
+        "weights": {
+          "$ref": "#/$defs/Components"
+        }
+      },
+      "required": [
+        "id",
+        "order_id",
+        "customer_id",
+        "stage",
+        "as_of",
+        "risk_level",
+        "confidence",
+        "components",
+        "weights",
+        "reason",
+        "recommended_action",
+        "scoring_method",
+        "rule_version",
+        "provenance"
+      ],
+      "title": "RiskAssessment",
+      "type": "object"
+    },
+    "RiskLevel": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "INSUFFICIENT_DATA"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "ScoringMethod": {
+      "enum": [
+        "RULES",
+        "RULES_AND_MODEL"
+      ],
+      "title": "ScoringMethod",
+      "type": "string"
+    },
+    "ShipmentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "delivered_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Delivered At"
+        },
+        "delivery_attempts": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Delivery Attempts"
+        },
+        "delivery_status": {
+          "$ref": "#/$defs/DeliveryStatus"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "shipped_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shipped At"
+        }
+      },
+      "required": [
+        "order_id",
+        "delivery_status"
+      ],
+      "title": "ShipmentRecord",
+      "type": "object"
+    },
+    "Signal": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        },
+        "evidence": {
+          "title": "Evidence",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/SignalSource"
+        }
+      },
+      "required": [
+        "code",
+        "label",
+        "evidence",
+        "source",
+        "contribution"
+      ],
+      "title": "Signal",
+      "type": "object"
+    },
+    "SignalSource": {
+      "enum": [
+        "RULE",
+        "ML",
+        "ANOMALY"
+      ],
+      "title": "SignalSource",
+      "type": "string"
+    },
+    "Stage": {
+      "enum": [
+        "PRE_DISPATCH",
+        "POST_DELIVERY"
+      ],
+      "title": "Stage",
+      "type": "string"
+    },
+    "TimelineEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "at": {
+          "format": "date-time",
+          "title": "At",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "at",
+        "kind",
+        "detail"
+      ],
+      "title": "TimelineEvent",
+      "type": "object"
+    },
+    "TtrBucket": {
+      "enum": [
+        "LT_6H",
+        "H6_24",
+        "D1_3",
+        "D3_7",
+        "GT_7D",
+        "UNKNOWN"
+      ],
+      "title": "TtrBucket",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assessments": {
+      "items": {
+        "$ref": "#/$defs/RiskAssessment"
+      },
+      "title": "Assessments",
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/TimelineEvent"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "order": {
+      "$ref": "#/$defs/Order"
+    },
+    "prior_orders": {
+      "items": {
+        "$ref": "#/$defs/Order"
+      },
+      "title": "Prior Orders",
+      "type": "array"
+    },
+    "return": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReturnRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "shipment": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ShipmentRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "order"
+  ],
+  "title": "OrderDetail",
+  "type": "object"
+}

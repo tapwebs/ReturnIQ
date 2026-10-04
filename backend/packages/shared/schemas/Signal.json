@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "SignalSource": {
+      "enum": [
+        "RULE",
+        "ML",
+        "ANOMALY"
+      ],
+      "title": "SignalSource",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "contribution": {
+      "title": "Contribution",
+      "type": "number"
+    },
+    "evidence": {
+      "title": "Evidence",
+      "type": "string"
+    },
+    "label": {
+      "title": "Label",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/SignalSource"
+    }
+  },
+  "required": [
+    "code",
+    "label",
+    "evidence",
+    "source",
+    "contribution"
+  ],
+  "title": "Signal",
+  "type": "object"
+}

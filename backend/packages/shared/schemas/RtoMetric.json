@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "title": "Count",
+      "type": "integer"
+    },
+    "denominator": {
+      "title": "Denominator",
+      "type": "integer"
+    },
+    "pending": {
+      "default": 0,
+      "title": "Pending",
+      "type": "integer"
+    },
+    "rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rate"
+    }
+  },
+  "required": [
+    "count",
+    "rate",
+    "denominator"
+  ],
+  "title": "RtoMetric",
+  "type": "object"
+}

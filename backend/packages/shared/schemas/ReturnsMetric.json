@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "title": "Accepted",
+      "type": "integer"
+    },
+    "denominator": {
+      "title": "Denominator",
+      "type": "integer"
+    },
+    "rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rate"
+    },
+    "requested": {
+      "title": "Requested",
+      "type": "integer"
+    },
+    "requested_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Requested Rate"
+    }
+  },
+  "required": [
+    "requested",
+    "accepted",
+    "rate",
+    "denominator"
+  ],
+  "title": "ReturnsMetric",
+  "type": "object"
+}

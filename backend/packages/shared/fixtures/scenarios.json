@@ -1,0 +1,130 @@
+{
+  "generator_spec": "gen-1.0.0",
+  "n_orders": 1200,
+  "scenarios": [
+    {
+      "actual_band": "LOW",
+      "actual_score": 0,
+      "customer_id": "cus_scn_01",
+      "expected_actions": [
+        "NORMAL_FULFILMENT"
+      ],
+      "expected_bands": [
+        "LOW"
+      ],
+      "name": "Normal prepaid order",
+      "note": "Prepaid, clean history.",
+      "order_id": "ord_scn_01",
+      "scenario": 1,
+      "stage": "PRE_DISPATCH"
+    },
+    {
+      "actual_band": "HIGH",
+      "actual_score": 92,
+      "customer_id": "cus_scn_02",
+      "expected_actions": [
+        "OTP_VERIFICATION",
+        "PREPAID_ONLY",
+        "HOLD_FULFILMENT"
+      ],
+      "expected_bands": [
+        "HIGH"
+      ],
+      "name": "COD order, 2 prior RTOs",
+      "note": "Stage 1 friction before dispatch.",
+      "order_id": "ord_scn_02",
+      "scenario": 2,
+      "stage": "PRE_DISPATCH"
+    },
+    {
+      "actual_band": "LOW",
+      "actual_score": 0,
+      "customer_id": "cus_scn_03",
+      "expected_actions": [
+        "INSTANT_RETURN"
+      ],
+      "expected_bands": [
+        "LOW"
+      ],
+      "name": "Legitimate fast defect return",
+      "note": "DEFECTIVE in 3 h: never treated as preventable.",
+      "order_id": "ord_scn_03",
+      "scenario": 3,
+      "stage": "POST_DELIVERY"
+    },
+    {
+      "actual_band": "HIGH",
+      "actual_score": 93,
+      "customer_id": "cus_scn_04",
+      "expected_actions": [
+        "MANUAL_REVIEW",
+        "REFUND_AFTER_QC"
+      ],
+      "expected_bands": [
+        "HIGH"
+      ],
+      "name": "Repeat fast returner",
+      "note": "4 of 5 orders returned, median 3.5 h, same category.",
+      "order_id": "ord_scn_04",
+      "scenario": 4,
+      "stage": "POST_DELIVERY"
+    },
+    {
+      "actual_band": "MEDIUM",
+      "actual_score": 45,
+      "customer_id": "cus_scn_05",
+      "expected_actions": [
+        "INSTANT_RETURN",
+        "PHOTO_VERIFICATION",
+        "EXCHANGE_OR_STORE_CREDIT"
+      ],
+      "expected_bands": [
+        "LOW",
+        "MEDIUM"
+      ],
+      "name": "Late return, first-time customer",
+      "note": "Cold start: scored on SKU, category, pincode and payment signals.",
+      "order_id": "ord_scn_05",
+      "scenario": 5,
+      "stage": "POST_DELIVERY"
+    },
+    {
+      "actual_band": "INSUFFICIENT_DATA",
+      "actual_score": null,
+      "customer_id": "cus_scn_06",
+      "expected_actions": [
+        "INSTANT_RETURN"
+      ],
+      "expected_bands": [
+        "INSUFFICIENT_DATA"
+      ],
+      "name": "Missing delivery timestamp",
+      "note": "TTR unknown, so the engine refuses to score.",
+      "order_id": "ord_scn_06",
+      "scenario": 6,
+      "stage": "POST_DELIVERY"
+    },
+    {
+      "actual_band": "HIGH",
+      "actual_score": 72,
+      "customer_id": "cus_scn_04",
+      "expected_actions": [
+        "OTP_VERIFICATION",
+        "UPI_PREPAID_INCENTIVE",
+        "PARTIAL_PREPAID",
+        "PREPAID_ONLY",
+        "HOLD_FULFILMENT"
+      ],
+      "expected_bands": [
+        "MEDIUM",
+        "HIGH"
+      ],
+      "name": "Next order after a flagged return",
+      "note": "Same customer as scenario 4: the earlier flag raises Stage 1 risk.",
+      "order_id": "ord_scn_07",
+      "scenario": 7,
+      "stage": "PRE_DISPATCH"
+    }
+  ],
+  "seed": 42
+}

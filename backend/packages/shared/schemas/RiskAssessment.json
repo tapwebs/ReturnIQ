@@ -1,0 +1,270 @@
+{
+  "$defs": {
+    "ActionType": {
+      "enum": [
+        "NORMAL_FULFILMENT",
+        "OTP_VERIFICATION",
+        "UPI_PREPAID_INCENTIVE",
+        "PARTIAL_PREPAID",
+        "PREPAID_ONLY",
+        "HOLD_FULFILMENT",
+        "SELLER_RESTRICTION",
+        "INSTANT_RETURN",
+        "PHOTO_VERIFICATION",
+        "EXCHANGE_OR_STORE_CREDIT",
+        "MANUAL_REVIEW",
+        "REFUND_AFTER_QC",
+        "RESTRICT_RETURN_METHOD",
+        "RESTRICT_COD_PINCODE",
+        "CHANGE_POLICY_THRESHOLD"
+      ],
+      "title": "ActionType",
+      "type": "string"
+    },
+    "Components": {
+      "additionalProperties": false,
+      "properties": {
+        "anomaly": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Anomaly"
+        },
+        "ml": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ml"
+        },
+        "rule": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rule"
+        }
+      },
+      "title": "Components",
+      "type": "object"
+    },
+    "Provenance": {
+      "enum": [
+        "SYNTHETIC",
+        "SELLER_UPLOADED",
+        "LIVE"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    },
+    "RiskLevel": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "INSUFFICIENT_DATA"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "ScoringMethod": {
+      "enum": [
+        "RULES",
+        "RULES_AND_MODEL"
+      ],
+      "title": "ScoringMethod",
+      "type": "string"
+    },
+    "Signal": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        },
+        "evidence": {
+          "title": "Evidence",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/SignalSource"
+        }
+      },
+      "required": [
+        "code",
+        "label",
+        "evidence",
+        "source",
+        "contribution"
+      ],
+      "title": "Signal",
+      "type": "object"
+    },
+    "SignalSource": {
+      "enum": [
+        "RULE",
+        "ML",
+        "ANOMALY"
+      ],
+      "title": "SignalSource",
+      "type": "string"
+    },
+    "Stage": {
+      "enum": [
+        "PRE_DISPATCH",
+        "POST_DELIVERY"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "alternative_actions": {
+      "items": {
+        "$ref": "#/$defs/ActionType"
+      },
+      "title": "Alternative Actions",
+      "type": "array"
+    },
+    "as_of": {
+      "format": "date-time",
+      "title": "As Of",
+      "type": "string"
+    },
+    "components": {
+      "$ref": "#/$defs/Components"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "customer_id": {
+      "title": "Customer Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "latency_ms": {
+      "default": 0.0,
+      "title": "Latency Ms",
+      "type": "number"
+    },
+    "missing_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Fields",
+      "type": "array"
+    },
+    "model_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Version"
+    },
+    "order_id": {
+      "title": "Order Id",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    },
+    "recommended_action": {
+      "$ref": "#/$defs/ActionType"
+    },
+    "risk_level": {
+      "$ref": "#/$defs/RiskLevel"
+    },
+    "risk_score": {
+      "anyOf": [
+        {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Risk Score"
+    },
+    "rule_version": {
+      "title": "Rule Version",
+      "type": "string"
+    },
+    "scoring_method": {
+      "$ref": "#/$defs/ScoringMethod"
+    },
+    "signals": {
+      "items": {
+        "$ref": "#/$defs/Signal"
+      },
+      "title": "Signals",
+      "type": "array"
+    },
+    "stage": {
+      "$ref": "#/$defs/Stage"
+    },
+    "weights": {
+      "$ref": "#/$defs/Components"
+    }
+  },
+  "required": [
+    "id",
+    "order_id",
+    "customer_id",
+    "stage",
+    "as_of",
+    "risk_level",
+    "confidence",
+    "components",
+    "weights",
+    "reason",
+    "recommended_action",
+    "scoring_method",
+    "rule_version",
+    "provenance"
+  ],
+  "title": "RiskAssessment",
+  "type": "object"
+}

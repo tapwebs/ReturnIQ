@@ -1,0 +1,60 @@
+{
+  "data": {
+    "context": {
+      "dataset_id": "ds_02d31948",
+      "order_id": "ord_scn_04"
+    },
+    "error": null,
+    "id": "run_fixture_0001",
+    "proposals": [
+      "act_fixture_0001"
+    ],
+    "provider": "PLAYBOOK",
+    "status": "SUCCEEDED",
+    "steps": [
+      {
+        "idx": 1,
+        "input": {
+          "order_id": "ord_scn_04"
+        },
+        "ms": 31,
+        "output_summary": "5 orders, 4 returns, median return time 3.5 h",
+        "status": "DONE",
+        "tool": "get_order_history"
+      },
+      {
+        "idx": 2,
+        "input": {
+          "order_id": "ord_scn_04",
+          "stage": "POST_DELIVERY"
+        },
+        "ms": 14,
+        "output_summary": "Risk index 93 (HIGH)",
+        "status": "DONE",
+        "tool": "assess_risk"
+      },
+      {
+        "idx": 3,
+        "input": {
+          "assessment_id": "ras_b3f287082819",
+          "type": "REFUND_AFTER_QC"
+        },
+        "ms": 9,
+        "output_summary": "Critical action: approval required",
+        "status": "DONE",
+        "tool": "propose_action"
+      }
+    ],
+    "summary": "Refund hold approved and executed in the sandbox.",
+    "task": "Review this return request against our policy"
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

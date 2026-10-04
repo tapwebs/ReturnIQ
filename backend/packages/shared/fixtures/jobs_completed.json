@@ -1,0 +1,23 @@
+{
+  "data": {
+    "accepted": 1200,
+    "dataset_id": "ds_02d31948",
+    "deduplicated": 0,
+    "errors_url": null,
+    "id": "job_fixture_0001",
+    "missing_fields": [
+      "customer_contact"
+    ],
+    "rejected": 0,
+    "status": "COMPLETED"
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}

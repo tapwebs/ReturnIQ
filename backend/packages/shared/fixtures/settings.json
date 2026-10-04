@@ -1,0 +1,54 @@
+{
+  "data": {
+    "anomaly_enabled": false,
+    "cost_defaults_paise": {
+      "forward_ship_paise": 6000,
+      "friction_margin_loss_pct": 2.0,
+      "handling_paise": 2500,
+      "intervention_cost_paise": 1000,
+      "packaging_paise": 1500,
+      "reverse_ship_paise": 8000,
+      "writeoff_pct": 10.0
+    },
+    "critical_actions": [
+      "CHANGE_POLICY_THRESHOLD",
+      "HOLD_FULFILMENT",
+      "PREPAID_ONLY",
+      "REFUND_AFTER_QC",
+      "RESTRICT_COD_PINCODE",
+      "RESTRICT_RETURN_METHOD",
+      "SELLER_RESTRICTION"
+    ],
+    "effectiveness_assumption": {
+      "base": 0.4,
+      "high": 0.6,
+      "low": 0.2
+    },
+    "llm": {
+      "configured": false,
+      "model": null,
+      "provider": "PLAYBOOK"
+    },
+    "min_confidence": 0.3,
+    "mode": "ACTIVE",
+    "return_window_days": 7,
+    "thresholds": {
+      "high": 70,
+      "medium": 40
+    },
+    "weights": {
+      "anomaly": 0.2,
+      "ml": 0.4,
+      "rule": 0.4
+    }
+  },
+  "error": null,
+  "meta": {
+    "contract_version": "1.0.0",
+    "generated_at": "2026-07-01T12:00:00+00:00",
+    "next_cursor": null,
+    "provenance": "SYNTHETIC",
+    "request_id": "req_fixture"
+  },
+  "success": true
+}
