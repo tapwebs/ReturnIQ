@@ -256,8 +256,15 @@ No license has been declared yet. All rights reserved by the authors until one i
 
 <div align="center">
 
-**ReturnIQ: Learn. Predict. Prevent.**
+### Built with ❤️ by TAPWEBS
 
-Built with care by [**TAPWEBS**](https://github.com/tapwebs)
+*ReturnIQ is part of the TAPWEBS product ecosystem.*
+
+We build digital products, intelligent automation systems,<br />
+and modern software solutions that help businesses grow.
+
+[tapwebs.in](https://tapwebs.in) · [github.com/tapwebs](https://github.com/tapwebs)
+
+<sub>Thank you for taking the time to explore ReturnIQ.</sub>
 
 </div>
